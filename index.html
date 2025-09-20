@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind CSS</title>
+    <!-- using cdn -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+    <!-- using npm -->
+    <link rel="stylesheet" href="./output.css">
+    <!-- <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: url('https://fastly.picsum.photos/id/657/1200/800.jpg?hmac=VlckSffSrQJN1x9xcyyLmugedQggEn9ypR_qpDKv6dM') no-repeat center/cover;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 300px;
+            height: 200px;
+            padding: 1rem;
+            border-radius: 1rem;
+            color: white;
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style> -->
+</head>
+
+<body class="h-screen">
+    <!-- <h2 class="p-3 text-center font-bold text-2xl text-blue-500 bg-orange-300">Tailwind CSS</h2>
+    <ul class="bg-black text-white flex [&>*]:flex">
+        <li><a class="p-3 hover:bg-zinc-900" href="#">Home</a></li>
+        <li><a class="p-3 hover:bg-zinc-900" href="#">About</a></li>
+        <li><a class="p-3 hover:bg-zinc-900" href="#">Contact</a></li>
+        <li><a class="p-3 hover:bg-zinc-900" href="#">News</a></li>
+    </ul> -->
+
+    <!----------------------------------------------------------------------------------------------------------->
+
+    <!-- Colors -->
+
+    <!-- Text-Color -->
+    <!-- <p class="text-red-50">Learning Tailwind</p>
+    <p class="text-red-100">Learning Tailwind</p>
+    <p class="text-red-200">Learning Tailwind</p>
+    <p class="text-red-300">Learning Tailwind</p>
+    <p class="text-red-400">Learning Tailwind</p>
+    <p class="text-red-500">Learning Tailwind</p>
+    <p class="text-red-600">Learning Tailwind</p>
+    <p class="text-red-700">Learning Tailwind</p>
+    <p class="text-red-800">Learning Tailwind</p>
+    <p class="text-red-900">Learning Tailwind</p>
+    <p class="text-red-950">Learning Tailwind</p> -->
+
+    <!-- <br> -->
+
+    <!-- Background-Color -->
+    <!-- <p class="bg-green-50">Learning Tailwind</p>
+    <p class="bg-green-100">Learning Tailwind</p>
+    <p class="bg-green-200">Learning Tailwind</p>
+    <p class="bg-green-300">Learning Tailwind</p>
+    <p class="bg-green-400">Learning Tailwind</p>
+    <p class="bg-green-500">Learning Tailwind</p>
+    <p class="bg-green-600">Learning Tailwind</p>
+    <p class="bg-green-700">Learning Tailwind</p>
+    <p class="bg-green-800">Learning Tailwind</p>
+    <p class="bg-green-900">Learning Tailwind</p>
+    <p class="bg-green-950">Learning Tailwind</p> -->
+
+    <!-- <br> -->
+
+    <!-- Border Color -->
+    <!-- <p class="border-blue-50 border-2 mb-2">Learning Tailwind</p>
+    <p class="border-blue-100 border-2 mb-2">Learning Tailwind</p>
+    <p class="border-blue-200 border-2 mb-2">Learning Tailwind</p>
+    <p class="border-blue-300 border-2 mb-2">Learning Tailwind</p>
+    <p class="border-blue-400 border-2 mb-2">Learning Tailwind</p>
+    <p class="border-blue-500 border-2 mb-2">Learning Tailwind</p>
+    <p class="border-blue-600 border-2 mb-2">Learning Tailwind</p>
+    <p class="border-blue-700 border-2 mb-2">Learning Tailwind</p>
+    <p class="border-blue-800 border-2 mb-2">Learning Tailwind</p>
+    <p class="border-blue-900 border-2 mb-2">Learning Tailwind</p>
+    <p class="border-blue-950 border-2 mb-2">Learning Tailwind</p> -->
+
+
+    <!-- Outline Color -->
+    <!-- <p class="outline-orange-50 outline outline-2 mb-2">Learning Tailwind</p>
+    <p class="outline-orange-100 outline outline-2 mb-2">Learning Tailwind</p>
+    <p class="outline-orange-200 outline outline-2 mb-2">Learning Tailwind</p>
+    <p class="outline-orange-300 outline outline-2 mb-2">Learning Tailwind</p>
+    <p class="outline-orange-400 outline outline-2 mb-2">Learning Tailwind</p>
+    <p class="outline-orange-500 outline outline-2 mb-2">Learning Tailwind</p>
+    <p class="outline-orange-600 outline outline-2 mb-2">Learning Tailwind</p>
+    <p class="outline-orange-700 outline outline-2 mb-2">Learning Tailwind</p>
+    <p class="outline-orange-800 outline outline-2 mb-2">Learning Tailwind</p>
+    <p class="outline-orange-900 outline outline-2 mb-2">Learning Tailwind</p>
+    <p class="outline-orange-950 outline outline-2 mb-2">Learning Tailwind</p> -->
+
+
+    <!-- Custom Color -->
+    <!-- <div class="bg-midnight text-tahiti p-2 text-2xl">
+        Custom Color
+    </div> -->
+
+    <!-- Arbitrary values -->
+    <!-- <button class="bg-[#1da1f2] text-white p-3 m-3 rounded">Click</button> -->
+    <!-- or -->
+    <!-- <button class="bg-[var(--color-primary)] text-white p-3 m-3 rounded">Click</button> -->
+
+    <!-- <button class="bg-secondary text-white p-3 m-3 rounded">Click</button>
+    <button class="bg-ternary text-white p-3 m-3 rounded">Click</button> -->
+
+    <!-- Adding additional colors -->
+    <!-- <div class="bg-brown-500 text-white text-tahiti p-2 text-2xl">
+        Adding additional colors
+    </div> -->
+
+    <!----------------------------------------------------------------------------------------------------------->
+
+    <!-- Margin and Padding -->
+
+    <!-- Padding -->
+    <!-- <button class="bg-[var(--color-primary)] text-white p-3 m-3">Click</button> -->
+
+
+    <!-- Width -->
+
+    <!-- <div class="bg-green-300 mb-2 p-2 w-10">w-10d</div>
+    <div class="bg-green-300 mb-2 p-2 w-96">w-96</div>
+    <div class="bg-green-300 mb-2 p-2 w-full">w-full</div>
+    <div class="bg-green-300 mb-2 p-2 w-1/3">w-1/3</div>
+    <div class="bg-green-300 mb-2 p-2 w-2/3">w-2/3</div>
+    <div class="bg-green-300 mb-2 p-2 w-3/6">w-3/6</div>
+    <div class="bg-cyan-300 mb-2 p-2 w-screen">w-screen</div>
+    <div class="bg-cyan-300 mb-2 p-2 w-full md:w-auto">w-auto</div>
+    <div class="bg-cyan-300 mb-2 p-2 w-1/3 hover:w-full cursor-pointer">w-1/3 hover:w-full cursor-pointer</div>
+    <div class="bg-cyan-300 mb-2 p-2 w-[80%]">Arbitrary values w-[80%]</div> -->
+
+    <!-- Min Width -->
+    <!-- <div class="bg-cyan-300 mb-2 p-2 w-20 min-w-48">min-w-48</div>
+    <div class="bg-cyan-300 mb-2 p-2 w-24 min-w-full hover:min-w-0 cursor-pointer">w-24 min-w-full hover:min-w-0</div>
+    <div class="bg-cyan-300 mb-2 p-2 w-10 min-w-[220px]">min-w-[220px]</div> -->
+
+    <!-- Max Width -->
+    <!-- <div class="bg-cyan-300 mb-2 p-2 w-20 max-w-48">max-w-48</div>
+    <div class="bg-cyan-300 mb-2 p-2 w-10 max-w-[220px]">max-w-[220px]</div> -->
+
+    <!-- Height -->
+    <!-- <div class="bg-cyan-300 mb-2 p-2 h-20">h-20</div>
+    <div class="bg-green-300 mb-2 p-2 h-1/3">h-1/3</div>
+    <div class="bg-green-300 mb-2 p-2 h-1/5">h-2/5</div>
+    <div class="bg-green-300 mb-2 p-2 h-full">h-full</div>
+    <div class="bg-green-300 mb-2 p-2 h-screen">h-full</div> -->
+
+    <!-- <div class="bg-green-300 mb-2 p-2 h-dvh">h-dvh</div> -->
+    <!-- <div class="bg-green-300 mb-2 p-2 h-lvh">h-lvh</div> -->
+    <!-- <div class="bg-green-300 mb-2 p-2 h-svh">h-svh</div> -->
+    <!-- <div class="bg-cyan-300 mb-2 p-2 w-24 min-h-full hover:min-h-0">h-24 min-h-full hover:min-h-0</div> -->
+
+    <!-- Size -->
+    <!-- <div class="bg-green-300 mb-2 p-2 size-16">Size-16</div>
+    <div class="bg-green-300 mb-2 p-2 size-80">Size-80</div> -->
+    <!-- <div class="bg-green-300 mb-2 p-2 size-full">Size-full</div> -->
+    <!-- <div class="bg-green-300 mb-2 p-2 size-full md:size-auto">Size-full md:size-auto</div> -->
+    <!-- <div class="bg-green-300 mb-2 p-2 size-48 hover:size-full">size-48 hover:size-full</div> -->
+    <!-- <div class="bg-green-300 mb-2 p-2 size-48 md:size-full">size-48 md:size-full</div> -->
+
+
+    <!-- Position Static -->
+
+
+    <!-- Static -->
+    <!-- <div class="bg-green-300 size-96 static">
+        <p>Static parent</p>
+        <div class="bg-brown-600 size-20 absolute bottom-0 left-0">
+            <p>Absolute child</p>
+        </div>
+    </div> -->
+
+    <!-- Relative -->
+    <!-- <div class="bg-green-300 size-96 relative">
+        <div class="bg-brown-600 size-20 absolute bottom-0 left-0">
+            <p>Absolute child</p>
+        </div>
+    </div> -->
+
+    <!-- Absolute -->
+    <!-- <div class="bg-green-300 size-96 relative">
+        <div class="bg-brown-600 size-20 absolute top-0 left-0">
+            <p>Absolute child 1</p>
+        </div>
+        <div class="bg-red-600 size-20 absolute top-0 right-0">
+            <p>Absolute child 2</p>
+        </div>
+        <div class="bg-yellow-600 size-20 absolute bottom-0 left-0">
+            <p>Absolute child 3</p>
+        </div>
+        <div class="bg-cyan-600 size-20 absolute bottom-0 right-0">
+            <p>Absolute child 4</p>
+        </div>
+    </div> -->
+
+    <!-- Fixed -->
+    <!-- <div class="bg-green-300 mb-2 size-96 relative ">
+        <div class="bg-brown-600 size-20 absolute top-0 left-0">
+            <p>Absolute child 1</p>
+        </div>
+        <div class="bg-red-600 size-20 absolute top-0 right-0">
+            <p>Absolute child 2</p>
+        </div>
+        <div class="bg-yellow-600 size-20 absolute bottom-0 left-0">
+            <p>Absolute child 3</p>
+        </div>
+        <div class="bg-cyan-600 size-20 absolute bottom-0 right-0">
+            <p>Absolute child 4</p>
+        </div>
+    </div>
+
+    <div class="bg-yellow-100 mb-2 size-96">
+        <div class="bg-red-600 size-20 fixed z-10">
+            <p>Absolute child 1</p>
+        </div>
+    </div>
+
+    <div class="bg-cyan-100 mb-2 size-96 relative">
+        <div class="bg-brown-600 size-20 absolute top-0 left-0">
+            <p>Absolute child 1</p>
+        </div>
+        <div class="bg-red-600 size-20 absolute top-0 right-0">
+            <p>Absolute child 2</p>
+        </div>
+        <div class="bg-yellow-600 size-20 absolute bottom-0 left-0">
+            <p>Absolute child 3</p>
+        </div>
+        <div class="bg-cyan-600 size-20 absolute bottom-0 right-0">
+            <p>Absolute child 4</p>
+        </div>
+    </div> -->
+
+
+    <!-- Sticky -->
+    <!-- <div class="bg-slate-500 size-full">
+        <div class="bg-red-400 mb-2 size-96">
+            <div class="sticky top-0">A</div>
+            <div>
+                <div>
+                    <strong>Andrew Alfred</strong>
+                </div>
+                <div>
+                    <strong>Aisha Houston</strong>
+                </div>
+            </div>
+        </div>
+        <div class="bg-red-600 mb-2 size-96">
+            <div class="sticky top-0">B</div>
+            <div>
+                <div>
+                    <strong>Bob Alfred</strong>
+                </div>
+            </div>
+        </div>
+        <div class="bg-red-800 mb-2 size-96">
+            <div class="sticky top-0">C</div>
+            <div>
+                <div>
+                    <strong>Bob Alfred a</strong>
+                </div>
+            </div>
+        </div>
+        <div class="bg-red-800 mb-2 size-96">
+            <div class="sticky top-0">C</div>
+            <div>
+                <div>
+                    <strong>Bob Alfred a</strong>
+                </div>
+            </div>
+        </div>
+        <div class="bg-red-800 mb-2 size-96">
+            <div class="sticky top-0">C</div>
+            <div>
+                <div>
+                    <strong>Bob Alfred a</strong>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Container -->
+    <!-- <div class="bg-slate-500 text-white text-center container mx-auto">
+        container class
+    </div> -->
+
+    <!-- Background-classes -->
+
+    <!-- Background size -->
+    <!-- <div class="h-64 border-2 border-cyan-500"> -->
+    <!-- <div class="h-64 w-64 bg-auto" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div> -->
+    <!-- <div class="h-64 bg-cover" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div> -->
+    <!-- <div class="h-64 bg-contain bg-no-repeat bg-center" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div> -->
+    <!-- <div class="h-64 bg-contain bg-no-repeat bg-center hover:bg-cover" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div> -->
+    <!-- <div class="h-64 bg-[length:200px_100px] bg-no-repeat bg-center" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div> -->
+    <!-- </div> -->
+
+    <!-- Background Color -->
+    <!-- <div class="h-20 mb-2 bg-cyan-300"></div>
+    <div class="h-20 mb-2 bg-white border-2"></div>
+    <div class="h-20 mb-2 bg-transparent border-2"></div> -->
+
+    <!-- <div class="h-20 mb-2 bg-cyan-300/10"></div>
+    <div class="h-20 mb-2 bg-cyan-300/30"></div>
+    <div class="h-20 mb-2 bg-cyan-300/60"></div>
+    <div class="h-20 mb-2 bg-cyan-300/[0.09]"></div> -->
+
+    <!-- <div class="h-20 mb-2 bg-[#48ce17]"></div> -->
+
+    <!-- Background attachment -->
+
+    <!-- <div class="h-64 m-2 border-2 border-cyan-500 overflow-auto">
+        <div class="h-64 bg-cover bg-no-repeat bg-center bg-fixed" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>
+
+        <div class="text-start p-2">
+            <h2>My trip to the summit</h2>
+            <p>November 16, 2021 · 4 min read</p>
+            <p>Maybe we can live without libraries, people like you and me. Maybe. 
+                Sure, we're too old to change the world, but what about that kid, sitting down, opening a book, right now, in a branch at the local library and finding drawings of pee-pees and wee-wees on the Cat in the Hat and the Five Chinese Brothers? Doesn't HE deserve better?
+                Look. If you think this is about overdue fines and missing books, you'd better think again. This is about that kid's right to read a book without getting his mind warped! Or: maybe that turns you on, Seinfeld; maybe that's how y'get your kicks. You and your good-time buddies.
+            </p>
+        </div>
+    </div> -->
+
+    <!-- <div class="h-64 m-2 border-2 border-cyan-500 overflow-auto">
+        <div class="h-64 bg-contain bg-no-repeat bg-center bg-local" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>
+
+        <div class="text-start p-2">
+            <h2>My trip to the summit</h2>
+            <p>November 16, 2021 · 4 min read</p>
+            <p>Maybe we can live without libraries, people like you and me. Maybe. 
+                Sure, we're too old to change the world, but what about that kid, sitting down, opening a book, right now, in a branch at the local library and finding drawings of pee-pees and wee-wees on the Cat in the Hat and the Five Chinese Brothers? Doesn't HE deserve better?
+                Look. If you think this is about overdue fines and missing books, you'd better think again. This is about that kid's right to read a book without getting his mind warped! Or: maybe that turns you on, Seinfeld; maybe that's how y'get your kicks. You and your good-time buddies.
+            </p>
+        </div>
+    </div> -->
+
+    <!-- <div class="h-64 m-2 border-2 border-cyan-500 overflow-auto">
+        <div class="h-64 bg-cover bg-no-repeat bg-center bg-scroll" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>
+
+        <div class="text-start p-2">
+            <h2>My trip to the summit</h2>
+            <p>November 16, 2021 · 4 min read</p>
+            <p>Maybe we can live without libraries, people like you and me. Maybe. 
+                Sure, we're too old to change the world, but what about that kid, sitting down, opening a book, right now, in a branch at the local library and finding drawings of pee-pees and wee-wees on the Cat in the Hat and the Five Chinese Brothers? Doesn't HE deserve better?
+                Look. If you think this is about overdue fines and missing books, you'd better think again. This is about that kid's right to read a book without getting his mind warped! Or: maybe that turns you on, Seinfeld; maybe that's how y'get your kicks. You and your good-time buddies.
+            </p>
+        </div>
+    </div> -->
+
+    <!-- Background clip -->
+    <!-- <div class="bg-clip-border p-6 m-2 bg-violet-600 border-4 border-violet-300 border-dashed">bg-clip-border </div>
+    <div class="bg-clip-padding p-6 m-2 bg-violet-600 border-4 border-violet-300 border-dashed">bg-clip-padding</div>
+    <div class="bg-clip-content p-6 m-2 bg-violet-600 border-4 border-violet-300 border-dashed">bg-clip-content</div>
+    <div class="m-2 text-5xl font-extrabold">
+        <span class="bg-gradient-to-r from-pink-500 to-violet-500 text-transparent bg-clip-text">
+            Hello world
+        </span>
+    </div> -->
+
+
+    <!-- Background Origin -->
+    <!-- <div class="bg-origin-border h-64 bg-cover bg-no-repeat m-3 p-4 border-4 border-dashed" style="background-image: url(./SampleJPGImage_10mbmb.jpg)"></div>
+    <div class="bg-origin-padding h-64 bg-cover bg-no-repeat m-3 p-4 border-4 border-dashed" style="background-image: url(./SampleJPGImage_10mbmb.jpg)"></div>
+    <div class="bg-origin-content h-64 bg-cover bg-no-repeat m-3 p-4 border-4 border-dashed" style="background-image: url(./SampleJPGImage_10mbmb.jpg)"></div> -->
+
+    <!-- Background Position -->
+    <!-- <div class="h-72 border-2 border-cyan-500"> -->
+    <!-- <div class="h-48 bg-contain bg-no-repeat bg-center" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>    
+        <div class="h-48 bg-contain bg-no-repeat bg-left" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>    
+        <div class="h-48 bg-contain bg-no-repeat bg-right" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>    
+        <div class="size-48 bg-contain bg-no-repeat bg-top" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>    
+        <div class="size-52 bg-contain bg-no-repeat bg-bottom" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>    
+        <div class="size-52 bg-contain bg-no-repeat bg-left-top" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>    
+        <div class="size-52 bg-contain bg-no-repeat bg-left-bottom" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>    
+        <div class="h-48 bg-contain bg-no-repeat bg-right-top" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>    
+        <div class="h-48 bg-contain bg-no-repeat bg-right-bottom" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>     -->
+    <!-- <div class="h-48 bg-contain bg-no-repeat bg-[center_top_2rem]" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div> -->
+    <!-- </div> -->
+
+    <!-- Background Repeat -->
+    <!-- <div class="h-72 border-2 border-cyan-500"> -->
+    <!-- <div class="h-48 bg-contain bg-repeat" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>   -->
+    <!-- <div class="h-48 bg-contain bg-no-repeat" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>   -->
+    <!-- <div class="h-48 bg-contain bg-repeat-x" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>   -->
+    <!-- <div class="h-48 bg-contain bg-repeat-y" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>   -->
+    <!-- <div class="h-48 bg-contain bg-repeat-y" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>   -->
+    <!-- </div> -->
+
+    <!-- Gradient -->
+    <!-- <div class="h-14 m-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-transparent bg-clip-text text-3xl">Hello</div>
+    <div class="h-14 m-2 bg-gradient-to-r from-sky-500 to-indigo-500"></div>
+    <div class="h-14 m-2 bg-gradient-to-l from-cyan-500 to-blue-500 text-transparent bg-clip-text text-3xl">Hello</div>
+    <div class="h-14 m-2 bg-gradient-to-l from-sky-500 to-indigo-500"></div>
+
+    <div class="h-14 m-2 text-white text-center bg-gradient-to-r from-red-500 to-indigo-500">bg-gradient-to-r from-red-500 to-indigo-500</div>
+
+
+    <div class="h-52 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')]"></div> -->
+
+
+    <!-- Filters -->
+
+    <!-- Blur -->
+
+    <!-- <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] blur-none"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] blur-sm"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] blur"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] blur-md"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] blur-lg"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] blur-xl"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] blur-2xl"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] blur-3xl"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] blur-[2px]"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] blur-[3px]"></div> -->
+
+    <!-- Brightness -->
+    <!-- <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-0"></div>   
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-50"></div>   
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-75"></div>   
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-90"></div>   
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-95"></div>   
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-100"></div>   
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-105"></div>   
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-110"></div>   
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-125"></div>   
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-150"></div>   
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-200"></div>   
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-50 hover:brightness-150"></div>   
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-[1.75]"></div>    -->
+
+    <!-- Contrast -->
+    <!-- <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')]"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] contrast-0"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] contrast-50"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] contrast-75"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] contrast-100"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] contrast-125"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] contrast-150"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] contrast-200"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] contrast-[.25]"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] contrast-[2]"></div> -->
+
+    <!-- Drop Shadow -->
+    <!-- <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')]"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] drop-shadow-sm"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] drop-shadow"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] drop-shadow-md"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] drop-shadow-lg"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] drop-shadow-xl"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] drop-shadow-2xl"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] drop-shadow-none"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]"></div> -->
+
+    <!-- Grayscale -->
+    <!-- <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] grayscale-0"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] grayscale"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] grayscale-[50%]"></div> -->
+
+    <!-- Hue Rotate -->
+    <!-- <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')]"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] hue-rotate-0"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] hue-rotate-15"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] hue-rotate-30"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] hue-rotate-60"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] hue-rotate-90"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] hue-rotate-180"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] hue-rotate-[200deg]"></div> -->
+
+    <!-- Invert -->
+    <!-- <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')]"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] invert-0"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] invert"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] invert-[0.7]"></div> -->
+
+    <!-- Saturate -->
+    <!-- <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] saturate-0"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] saturate-50"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] saturate-100"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] saturate-150"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] saturate-200"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] saturate-[.75]"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] saturate-[3]"></div> -->
+
+
+    <!-- Sepia -->
+    <!-- <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] sepia-0"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] sepia"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] sepia-[0.5]"></div>
+    <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] sepia-[0.75]"></div> -->
+
+
+    <!-- Backdrop Properties -->
+    <!-- <div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')]"></div> -->
+    <!-- <div class="card bg-filter-blur-color blur">filter: blur(10px)</div> -->
+
+    <!-- <div class="card bg-backdrop-blur-color backdrop-blur-sm">backdrop-filter: blur(10px)</div>
+    <div class="card bg-backdrop-blur-color backdrop-brightness-75">backdrop-filter: brightness(0.5)</div>
+    <div class="card bg-backdrop-blur-color backdrop-invert">backdrop-filter: brightness(0.5)</div>
+    <div class="card bg-backdrop-blur-color backdrop-opacity-10">backdrop-filter: opacity(0.10)</div> -->
+
+    <!-- Group Hover -->
+    <!-- <div class="group">
+        <a href="#">
+            <h1 class="group-hover:bg-black group-hover:text-white">Hover 1</h1>
+            <h1 class="group-hover:bg-black group-hover:text-white">Hover 2</h1>
+        </a>
+    </div> -->
+
+    <!-- Columns -->
+    <!-- <div class="columns-lg gap-0">
+        <div class="bg-orange-300 p-2">Column 1</div>
+        <div class="bg-green-300 p-2">Column 2</div>
+        <div class="bg-red-300 p-2">Column 3</div>
+        <div class="bg-cyan-300 p-2">Column 4</div>
+        <div class="bg-amber-300 p-2">Column 5</div>
+        <div class="bg-blue-300 p-2">Column 6</div>
+    </div> -->
+
+    <!-- <div class="columns-[30rem]">
+        <div class="bg-orange-300 p-2">Column 1</div>
+        <div class="bg-green-300 p-2">Column 2</div>
+        <div class="bg-red-300 p-2">Column 3</div>
+        <div class="bg-cyan-300 p-2">Column 4</div>
+        <div class="bg-amber-300 p-2">Column 5</div>
+        <div class="bg-blue-300 p-2">Column 6</div>
+    </div> -->
+
+    <!-- <div class="bg-red-300 md:bg-green-300">
+        Media Query - Responsive Design
+    </div> -->
+
+    <!-- Custom Class -->
+    <!-- <div class="bg-cyan-300 p-c-1 m-1">Custom Padding 1</div> -->
+
+    <!-- Flex Classes -->
+    <!-- Flex Basis -->
+    <!-- <div class="flex flex-row">
+        <div class="bg-orange-300 h-60 basis-28">01</div>
+        <div class="bg-green-300 h-60 basis-56">02</div>
+        <div class="bg-red-300 h-60 basis-80">03</div>
+        <div class="bg-cyan-300 h-60 w-60 basis-auto">04</div>
+        <div class="bg-brown-500 h-60 basis-2.5">05</div>
+        <div class="bg-green-500 h-60 basis-1/2">06</div>
+    </div> -->
+
+    <!-- Flex Directions -->
+    <!-- flex-direction: row -->
+    <!-- <div class="flex flex-row">
+        <div class="bg-orange-300 h-60 basis-28">01</div>
+        <div class="bg-green-300 h-60 basis-56">02</div>
+        <div class="bg-red-300 h-60 basis-80">03</div>
+        <div class="bg-cyan-300 h-60 w-60 basis-auto">04</div>
+        <div class="bg-brown-500 h-60 basis-2.5">05</div>
+        <div class="bg-green-500 h-60 basis-1/2">06</div>
+    </div> -->
+
+    <!-- flex-direction: row-reverse -->
+    <!-- <div class="flex flex-row-reverse">
+        <div class="bg-orange-300 h-60 basis-28">01</div>
+        <div class="bg-green-300 h-60 basis-56">02</div>
+        <div class="bg-red-300 h-60 basis-80">03</div>
+        <div class="bg-cyan-300 h-60 w-60 basis-auto">04</div>
+        <div class="bg-brown-500 h-60 basis-2.5">05</div>
+        <div class="bg-green-500 h-60 basis-1/2">06</div>
+    </div> -->
+
+    <!-- flex-direction: column -->
+    <!-- <div class="flex flex-col">
+        <div class="bg-orange-300 w-60 basis-28">01</div>
+        <div class="bg-green-300 w-60 basis-56">02</div>
+        <div class="bg-red-300 w-60 basis-80">03</div>
+        <div class="bg-cyan-300 size-60 basis-auto">04</div>
+        <div class="bg-brown-500 h-60 basis-2.5">05</div>
+        <div class="bg-green-500 h-60 basis-1/2">06</div>
+    </div> -->
+
+    <!-- flex-direction: row-reverse -->
+    <!-- <div class="flex flex-col-reverse">
+        <div class="bg-orange-300 w-60 basis-28">01</div>
+        <div class="bg-green-300 w-60 basis-56">02</div>
+        <div class="bg-red-300 w-60 basis-80">03</div>
+        <div class="bg-cyan-300 size-60 basis-auto">04</div>
+        <div class="bg-brown-500 h-60 basis-2.5">05</div>
+        <div class="bg-green-500 h-60 basis-1/2">06</div>
+    </div> -->
+
+    <!-- <div class="flex flex-wrap">
+        <div class="bg-orange-300 size-60">01</div>
+        <div class="bg-green-300 size-60">02</div>
+        <div class="bg-red-300 size-60">03</div>
+        <div class="bg-cyan-300 size-60">04</div>
+        <div class="bg-brown-500 size-60">05</div>
+        <div class="bg-green-500 size-60">06</div>
+    </div> -->
+
+    <!-- <div class="flex flex-wrap-reverse">
+        <div class="bg-orange-300 size-60">01</div>
+        <div class="bg-green-300 size-60">02</div>
+        <div class="bg-red-300 size-60">03</div>
+        <div class="bg-cyan-300 size-60">04</div>
+        <div class="bg-brown-500 size-60">05</div>
+        <div class="bg-green-500 size-60">06</div>
+    </div> -->
+
+    <!-- <div class="flex">
+        <div class="bg-orange-300 size-60 grow">01</div>
+        <div class="bg-green-300 size-60 grow-0">02</div>
+        <div class="bg-red-300 size-60 grow">03</div>
+        <div class="bg-cyan-300 size-60 grow-[2]">04</div>
+    </div> -->
+
+    <!-- <div class="flex">
+        <div class="bg-orange-300 size-60 shrink">01</div>
+        <div class="bg-green-300 size-60 shrink-0">02</div>
+        <div class="bg-red-300 size-60 shrink">03</div>
+        <div class="bg-cyan-300 size-60 shrink-[2]">04</div>
+    </div> -->
+
+    <!-- <div class="flex">
+        <div class="bg-orange-300 size-60 flex-1">01</div>
+        <div class="bg-green-300 size-60 flex-1>02</div>
+        <div class="bg-cyan-300 size-60 flex-1">03</div>
+    </div> -->
+
+    <!-- <div class="flex">
+        <div class="bg-orange-300 size-60 flex-1">01</div>
+        <div class="bg-green-300 size-60 flex-1">02</div>
+        <div class="bg-cyan-300 size-60 flex-auto">03</div>
+    </div> -->
+
+    <!-- <div class="flex">
+        <div class="bg-orange-300 size-60 flex-1">01</div>
+        <div class="bg-green-300 size-60 flex-1">02</div>
+        <div class="bg-cyan-300 size-60 flex-initial">03</div>
+    </div> -->
+
+    <!-- <div class="flex">
+        <div class="bg-orange-300 size-60 flex-1">01</div>
+        <div class="bg-green-300 size-60 flex-none">02</div>
+        <div class="bg-cyan-300 size-60 flex-1">03</div>
+    </div> -->
+
+    <div class="flex justify-between flex-wrap">
+        <div class="bg-orange-300 size-60">01</div>
+        <div class="bg-green-300 size-60">02</div>
+        <div class="bg-cyan-300 size-60">03</div>
+        <div class="bg-orange-300 size-60">04</div>
+        <div class="bg-green-300 size-60">05</div>
+        <div class="bg-cyan-300 size-60">06</div>
+    </div>
+
+
+</body>
+
+</html>

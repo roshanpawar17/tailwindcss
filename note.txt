@@ -1,0 +1,2045 @@
+Install gitignore file -> npx gitignore node
+
+
+1] what is Tailwind CSS ?
+
+-> Tailwind CSS is a utility-first CSS framework that helps you build modern, responsive user interfaces quickly.
+-> Instead of writing custom CSS for each component, Tailwind gives you a large set of predefined utility classes 
+    (like flex, pt-4, text-center, bg-blue-500, etc.) that you apply directly to your HTML elements.
+
+------------------------------
+
+2] CDN:
+
+1. full form is 'Content Delivery Network'
+2. - A CDN is a network of distributed servers located in different geographic regions.
+   - Its main job is to deliver content (like images, CSS, JavaScript, videos, fonts, etc.) 
+     quickly to users by serving it from the server closest to them.
+
+Benefits of CDN:
+
+1. Faster loading → reduces latency by using the nearest server
+2. Reduces server load → distributes traffic across multiple servers
+3. High availability → if one server goes down, others handle requests
+4. Better security → some CDNs provide DDoS protection, HTTPS, etc.
+
+------------------------------
+
+3] Tailwaind v3 Installation
+
+1} Through CDN
+
+Add the Play CDN script tag to the <head> of your HTML file:
+<script src="https://cdn.tailwindcss.com"></script>
+
+2} Through npm 
+
+1) Install Tailwind CSS
+
+-> npm install -D tailwindcss@3
+
+**Note: 
+1. -D or --save-dev means Install as a devDependency
+2. Packages used only during development/build time.
+3. Not needed in the production runtime.
+4. Example: Tailwind CSS, Webpack, ESLint, Babel.
+5. These go into "devDependencies" in package.json.
+
+1. dependencies (--save or default)
+2. Packages your app needs in production (when it's running).
+3. Example: React, Express, Lodash.
+4. These go into the "dependencies" section of package.json.
+
+2) Configure your template paths
+
+-> npx tailwindcss init
+
+tailwind.config.js
+
+ /** @type {import('tailwindcss').Config} */
+export default {
+   content: ["./src/**/*.{html,js}"],
+   theme: {
+     extend: {},
+   },
+   plugins: [],
+}
+
+**Note:
+
+content: ["./src/**/*.{html,js}"]
+1. Means -> look inside the src folder (and its subfolders).
+2. ./ means relative to the project root.
+3. /**/*
+   1) ** -> match any number of subdirectories (recursive).
+   2) * -> match any file name.
+4. .{html,js} - This part says: only match files that end with .html or .js
+              - The {} curly braces allow multiple extensions.
+5. Match all files in the src folder, including all subfolders.
+
+3) create style.css file
+
+and add below content:
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+4) Run the CLI tool to scan your template files for classes and build your output CSS file.
+
+-> npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
+or
+-> npx tailwindcss -i ./style.css -o ./output.css --watch - for normal file
+
+5) Add your compiled CSS file to the <head> and start using Tailwind’s utility classes to style your content. 
+(only for normal projects which is build in html, css & js).
+
+<link href="./output.css" rel="stylesheet">
+
+
+-----------------------------
+
+1) first header with tailwind
+
+[&>*]:flex - The flex apply on child 
+
+<h2 class="p-3 text-center font-bold text-2xl text-blue-500 bg-orange-300">Tailwind CSS</h2>
+<ul class="bg-black text-white flex [&>*]:flex">
+    <li><a class="p-3 hover:bg-zinc-900" href="#">Home</a></li>
+    <li><a class="p-3 hover:bg-zinc-900" href="#">About</a></li>
+    <li><a class="p-3 hover:bg-zinc-900" href="#">Contact</a></li>
+    <li><a class="p-3 hover:bg-zinc-900" href="#">News</a></li>
+</ul>
+
+
+------------------------------
+
+4} Colors
+
+1] Default Tailwind Colors
+
+1) Tailwind provides colors in shades from 50 → 950 (lighter to darker).
+
+    blue-50 → very light blue
+    blue-500 → standard/primary blue
+    blue-900 → very dark blue
+
+2) Color shades
+
+Here we get default colors - const colors = require('tailwindcss/colors')
+Syntax - [property]-[color]-[shade]
+
+-50
+-100
+-200
+-300
+-400
+-500
+-600
+-700
+-800
+-900
+-950
+
+3) Special Colors
+
+-black → #000000
+-white → #ffffff
+-transparent
+-current (uses current text color)
+-inherit
+
+4) Tailwind includes 20+ color families out of the box:
+
+5) Text Color utilities
+
+    <p class="text-red-50">Learning Tailwind</p>
+    <p class="text-red-100">Learning Tailwind</p>
+    <p class="text-red-200">Learning Tailwind</p>
+    <p class="text-red-300">Learning Tailwind</p>
+    <p class="text-red-400">Learning Tailwind</p>
+    <p class="text-red-500">Learning Tailwind</p>
+    <p class="text-red-600">Learning Tailwind</p>
+    <p class="text-red-700">Learning Tailwind</p>
+    <p class="text-red-800">Learning Tailwind</p>
+    <p class="text-red-900">Learning Tailwind</p>
+    <p class="text-red-950">Learning Tailwind</p>
+ 
+6) Background-color utilities
+
+    <p class="bg-green-50">Learning Tailwind</p>
+    <p class="bg-green-100">Learning Tailwind</p>
+    <p class="bg-green-200">Learning Tailwind</p>
+    <p class="bg-green-300">Learning Tailwind</p>
+    <p class="bg-green-400">Learning Tailwind</p>
+    <p class="bg-green-500">Learning Tailwind</p>
+    <p class="bg-green-600">Learning Tailwind</p>
+    <p class="bg-green-700">Learning Tailwind</p>
+    <p class="bg-green-800">Learning Tailwind</p>
+    <p class="bg-green-900">Learning Tailwind</p>
+    <p class="bg-green-950">Learning Tailwind</p>
+
+7) Border Color utilities
+
+    <p class="border-blue-50 border-2 mb-2">Learning Tailwind</p>
+    <p class="border-blue-100 border-2 mb-2">Learning Tailwind</p>
+    <p class="border-blue-200 border-2 mb-2">Learning Tailwind</p>
+    <p class="border-blue-300 border-2 mb-2">Learning Tailwind</p>
+    <p class="border-blue-400 border-2 mb-2">Learning Tailwind</p>
+    <p class="border-blue-500 border-2 mb-2">Learning Tailwind</p>
+    <p class="border-blue-600 border-2 mb-2">Learning Tailwind</p>
+    <p class="border-blue-700 border-2 mb-2">Learning Tailwind</p>
+    <p class="border-blue-800 border-2 mb-2">Learning Tailwind</p>
+    <p class="border-blue-900 border-2 mb-2">Learning Tailwind</p>
+    <p class="border-blue-950 border-2 mb-2">Learning Tailwind</p>
+
+8) Outline Color utilities
+
+    <p class="outline-orange-50 outline outline-2 mb-2">Learning Tailwind</p>
+    <p class="outline-orange-100 outline outline-2 mb-2">Learning Tailwind</p>
+    <p class="outline-orange-200 outline outline-2 mb-2">Learning Tailwind</p>
+    <p class="outline-orange-300 outline outline-2 mb-2">Learning Tailwind</p>
+    <p class="outline-orange-400 outline outline-2 mb-2">Learning Tailwind</p>
+    <p class="outline-orange-500 outline outline-2 mb-2">Learning Tailwind</p>
+    <p class="outline-orange-600 outline outline-2 mb-2">Learning Tailwind</p>
+    <p class="outline-orange-700 outline outline-2 mb-2">Learning Tailwind</p>
+    <p class="outline-orange-800 outline outline-2 mb-2">Learning Tailwind</p>
+    <p class="outline-orange-900 outline outline-2 mb-2">Learning Tailwind</p>
+    <p class="outline-orange-950 outline outline-2 mb-2">Learning Tailwind</p>
+
+
+9) Adding additional colors:
+
+If you’d like to add a brand new color to the default palette, add it in the theme.extend.colors section of your configuration file:
+Also we can use other default colors
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        brown: {
+          50: '#fdf8f6',
+          100: '#f2e8e5',
+          200: '#eaddd7',
+          300: '#e0cec7',
+          400: '#d2bab0',
+          500: '#bfa094',
+          600: '#a18072',
+          700: '#977669',
+          800: '#846358',
+          900: '#43302b',
+        },
+      }
+    },
+  },
+}
+
+<div class="bg-brown-500 text-white text-tahiti p-2 text-2xl">
+    Adding additional colors
+</div>
+
+
+10) Disabling a default color
+
+If you’d like to disable any of the default colors, 
+the best approach is to override the default color palette and just include the colors you do want:
+
+const colors = require('tailwindcss/colors')
+
+module.exports = {
+  theme: {
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      black: colors.black,
+      white: colors.white,
+      gray: colors.gray,
+      emerald: colors.emerald,
+      indigo: colors.indigo,
+      yellow: colors.yellow,
+    },
+  }
+}
+
+----------------------------------
+
+2] Custom Tailwind Colors
+
+**Note: 
+1. When we use theme colors in config then not able to use default color in project, so choose only one of them.
+   but you can use Arbitrary values like - class='bg-[#1da1f2]'
+
+<button class="bg-[#1da1f2] text-white p-3 m-3 rounded">Click</button>
+<!-- or -->
+<button class="bg-[var(--color-primary)] text-white p-3 m-3 rounded">Click</button>
+
+
+1) If you’d like to completely replace the default color palette with your own custom colors, 
+   add your colors directly under the theme.colors section of your configuration file:
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  theme: {
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      'white': '#ffffff',
+      'purple': '#3f3cbb',
+      'midnight': '#121063',
+      'metal': '#565584',
+      'tahiti': '#3ab7bf',
+      'silver': '#ecebff',
+      'bubble-gum': '#ff77e9',
+      'bermuda': '#78dcca',
+    },
+  }
+}
+
+By default, these colors will be made available everywhere in the framework where you use colors, 
+like the text color utilities, border color utilities, background color utilities, and more.
+
+<div class="bg-midnight text-tahiti">
+  Custom Color
+</div>
+
+2) Color object syntax:
+
+When your palette includes multiple shades of the same color, 
+it can be convenient to group them together using our nested color object syntax:
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  theme: {
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      'white': '#ffffff',
+      'tahiti': {
+        100: '#cffafe',
+        200: '#a5f3fc',
+        300: '#67e8f9',
+        400: '#22d3ee',
+        500: '#06b6d4',
+        600: '#0891b2',
+        700: '#0e7490',
+        800: '#155e75',
+        900: '#164e63',
+      },
+      // ...
+    },
+  },
+}
+
+The nested keys will be combined with the parent key to form class names like `bg-tahiti-400`.
+
+3) Arbitrary values:
+
+If you need a one-off custom color in your project, 
+consider using Tailwind’s arbitrary value notation to generate a class for that color on-demand instead of adding it to your theme:
+
+<button class="bg-[#1da1f2] text-white">
+  Click
+</button>
+
+
+4) The special DEFAULT key can be used when you want to define a value with no suffix:
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  theme: {
+    colors: {
+      'white': '#ffffff',
+      'purple': '#3f3cbb',
+      'midnight': '#121063',
+      'tahiti': {
+        light: '#67e8f9',
+        DEFAULT: '#06b6d4',
+        dark: '#0e7490',
+      }
+    }
+  }
+}
+
+<div class="bg-midnight text-tahiti p-2 text-2xl">
+    Custom Color
+</div>
+
+**NOTE: text-tahiti - get default text color if DEFAULT key available in colors config without using like this `text-tahiti-DEFAULT` use direct text-tahiti
+
+---------------------------
+
+3] Using CSS variables - for rgba color specific and hsla
+
+If you’d like to define your colors as CSS variables, 
+you’ll need to define those variables as just the color channels if you want them to work with the opacity modifier syntax:
+
+**NOTE: Define your CSS variables as channels with no color space function
+
+-> style.css
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-secondary: 111 114 185;
+    --color-ternary: 333deg 100% 73%;
+    /* ... */
+  }
+}
+
+Then define your colors in your configuration file, 
+being sure to include the color space you’re using and a default alpha value for color spaces like rgba where the alpha channel is required:
+
+-> tailwind.config.js
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+    extend: {
+        colors: {
+          brown: {
+            50: '#fdf8f6',
+            100: '#f2e8e5',
+            200: '#eaddd7',
+            300: '#e0cec7',
+            400: '#d2bab0',
+            500: '#bfa094',
+            600: '#a18072',
+            700: '#977669',
+            800: '#846358',
+            900: '#43302b',
+          },
+          secondary: 'rgb(var(--color-secondary))'
+          ternary: 'hsl(var(--color-ternary))'
+        }
+    },
+    theme: {}
+}
+
+<button class="bg-secondary text-white p-3 m-3 rounded">Click</button>
+<button class="bg-ternary text-white p-3 m-3 rounded">Click</button>
+
+------------------------------------------------------------** Spacing **---------------------------------------------------------------------------
+
+// Padding
+
+Tailwind padding classes follow the pattern:
+
+1. p-{size}    // all sides
+2. px-{size}   // left + right
+2. py-{size}   // top + bottom
+3. pt-{size}   // top
+4. pr-{size}   // right
+5. pb-{size}   // bottom
+6. pl-{size}   // left
+7. ms-* / me-* // Using logical properties
+8. p-[*]       // Arbitrary values
+
+
+1. Padding on all sides
+
+p-0     /* padding: 0px */
+p-1     /* padding: 0.25rem = 4px */
+p-2     /* 0.5rem = 8px */
+p-3     /* 0.75rem = 12px */
+p-4     /* 1rem = 16px */
+
+2. Axis-based padding
+
+1) Horizontal (left + right):
+
+px-4  /* padding-left & right: 1rem */
+
+2) Vertical (top + bottom):
+
+py-6  /* padding-top & bottom: 1.5rem */
+
+3) Padding per side:
+
+Top → pt-*
+Right → pr-*
+Bottom → pb-*
+Left → pl-*
+
+pt-4  /* padding-top: 1rem */
+pr-8  /* padding-right: 2rem */
+pb-2  /* padding-bottom: 0.5rem */
+pl-6  /* padding-left: 1.5rem */
+
+
+4) Fractional & extra utilities
+
+p-px    /* 1px padding */
+p-0.5   /* 0.125rem = 2px */
+p-1.5   /* 0.375rem = 6px */
+p-2.5   /* 0.625rem = 10px */
+p-3.5   /* 0.875rem = 14px */
+
+5) Responsive & state variants
+
+p-4 md:p-8 lg:p-16
+hover:p-6
+
+6) Using logical properties
+
+ps-4
+pe-4
+
+7) Arbitrary values
+
+p-[4px]
+p-[2rem]
+
+-----------------------------------------------------------
+
+// Custom Padding
+
+In Tailwind CSS v3, you can set custom padding values in your tailwind.config.js file inside the theme.extend.padding section.
+
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      padding: {
+        '13': '3.25rem',   // custom padding (52px)
+        '72': '18rem',     // custom padding (288px)
+        'full': '100%',    // 100% padding
+        '1': '2rem',
+        'c-1': '3rem'
+      },
+    },
+  },
+  plugins: [],
+}
+
+<div class="p-13 bg-blue-200">Padding 52px</div>
+<div class="px-72 bg-green-200">Left & Right Padding 288px</div>
+<div class="py-full bg-red-200">Top & Bottom Padding 100%</div>
+<div class="bg-cyan-300 p-1 m-1">Custom Padding 1</div>
+<div class="bg-cyan-300 p-c-1 m-1">Custom Padding 1</div>
+
+------------------------------------------------------------
+
+// Margin
+
+Tailwind margin classes follow the same pattern as padding:
+
+1. m-{size}     // all sides
+2. mx-{size}    // left + right
+3. my-{size}    // top + bottom
+4. mt-{size}    // top
+5. mr-{size}    // right
+6. mb-{size}    // bottom
+7. ml-{size}    // left
+8. -m-{size}     // negative margin
+9. mx-auto / ml-auto / mr-auto
+10. ms-* / me-*  // Using logical properties
+11. m-[*]       // Arbitrary values
+
+
+1. Margin on all sides
+
+m-0     /* margin: 0px */
+m-1     /* 0.25rem = 4px */
+m-2     /* 0.5rem = 8px */
+m-3     /* 0.75rem = 12px */
+m-4     /* 1rem = 16px */
+
+2. Axis-based margin
+
+1) Horizontal (left + right):
+
+mx-4  /* margin-left & right: 1rem */
+
+2) Vertical (top + bottom):
+
+my-6  /* margin-top & bottom: 1.5rem */
+
+3. Margin per side
+
+Top → mt-*
+Right → mr-*
+Bottom → mb-*
+Left → ml-*
+
+mt-4  /* margin-top: 1rem */
+mr-8  /* margin-right: 2rem */
+mb-2  /* margin-bottom: 0.5rem */
+ml-6  /* margin-left: 1.5rem */
+
+4. Negative margins
+
+Add a - before the class:
+
+-m-1    /* margin: -0.25rem = -4px */
+-m-2    /* -0.5rem = -8px */
+-m-4    /* -1rem = -16px */
+-mx-6   /* margin-left & right: -1.5rem */
+-mt-8   /* margin-top: -2rem */
+
+5. Fractional & pixel margins
+
+m-px    /* 1px margin */
+m-0.5   /* 0.125rem = 2px */
+m-1.5   /* 0.375rem = 6px */
+m-2.5   /* 0.625rem = 10px */
+m-3.5   /* 0.875rem = 14px */
+
+6. Auto margins
+
+ml-auto  /* margin-left: auto */
+mr-auto  /* margin-right: auto */
+mx-auto  /* center block horizontally */
+
+
+7. Responsive & state variants
+
+m-4 md:m-8 lg:m-16
+hover:ml-4
+
+8. Using logical properties
+
+ms-4
+me-4
+
+9. Arbitrary values
+
+m-[4px]
+m-[2rem]
+
+
+-------------------------------------------------------------** Sizing **------------------------------------------------------------------
+
+// Width
+
+
+1. Fixed widths
+
+w-0	width: 0px;
+w-px	width: 1px;
+w-96
+w-48
+
+2. Percentage widths
+Use utilities like w-full, w-1/2, and w-2/5 to set an element to a percentage based width.
+
+w-full
+w-1/2
+w-2/5
+w-3/5
+w-2/3
+
+<div class="bg-green-300 mb-2 p-2 w-10">Learning Tailwind</div>
+<div class="bg-green-300 mb-2 p-2 w-96">Learning Tailwind</div>
+<div class="bg-green-300 mb-2 p-2 w-full">Learning Tailwind</div>
+<div class="bg-green-300 mb-2 p-2 w-1/2">Learning Tailwind</div>
+<div class="bg-green-300 mb-2 p-2 w-1/3">Learning Tailwind</div>
+<div class="bg-green-300 mb-2 p-2 w-2/3">Learning Tailwind</div>
+<div class="bg-green-300 mb-2 p-2 w-3/6">Learning Tailwind</div>
+
+3. Viewport width
+Use w-screen to make an element span the entire width of the viewport.
+
+<div class="bg-cyan-300 mb-2 p-2 w-screen">Learning Tailwind</div>
+
+4. Resetting the width
+The w-auto utility can be useful if you need to remove an element’s assigned width under a specific condition, like at a particular breakpoint:
+
+<div class="bg-cyan-300 mb-2 p-2 w-full md:w-auto">w-auto</div>
+
+5. Hover, focus, and other states
+
+<div class="bg-cyan-300 mb-2 p-2 w-1/3 hover:w-full cursor-pointer">w-1/3 hover:w-full</div>
+
+6. Arbitrary values
+
+<div class="bg-cyan-300 mb-2 p-2 w-[80%]">Arbitrary values w-[80%]</div>
+
+--> Minimum width
+
+1. Setting the minimum width
+Set the minimum width of an element using min-w-* utilities.
+
+<div class="bg-cyan-300 mb-2 p-2 w-20 min-w-48">min-w-48</div>
+
+2. Hover, focus, and other states
+
+<div class="bg-cyan-300 mb-2 p-2 w-24 min-w-full hover:min-w-0">w-24 min-w-full hover:min-w-0</div>
+
+3. Arbitrary values
+
+<div class="bg-cyan-300 mb-2 p-2 w-50 min-w-[220px]">min-w-[220px]</div>
+
+--> Maximum width
+
+<<div class="bg-cyan-300 mb-2 p-2 w-20 max-w-48">max-w-48</div>
+<div class="bg-cyan-300 mb-2 p-2 w-10 max-w-[220px]">max-w-[220px]</div> 
+
+---------------------------------------------------------------------------------------
+
+// Height
+
+1. Fixed heights
+Use utilities like h-px, h-1, and h-64 to set an element to a fixed height.
+
+<div class="bg-cyan-300 mb-2 p-2 h-20">h-20</div>
+<div class="bg-cyan-300 mb-2 p-2 w-10 max-w-[220px]">max-w-[220px]</div>
+
+2. Full height
+Use h-full to set an element’s height to 100% of its parent, as long as the parent has a defined height.
+
+<div class="bg-green-300 mb-2 p-2 h-full">h-full</div>
+
+3. Viewport height
+
+<div class="bg-green-300 mb-2 p-2 h-screen">h-full</div>
+
+4. Dynamic viewport height
+
+Use h-dvh to make an element span the entire height of the viewport, which changes as the browser UI expands or contracts.
+
+<div class="bg-green-300 mb-2 p-2 h-dvh">h-dvh</div>
+
+5. Large viewport height
+
+Use h-lvh to set an element’s height to the largest possible height of the viewport. This behaves the same as 100vh.
+
+<div class="bg-green-300 mb-2 p-2 h-lvh">h-lvh</div>
+
+6. Small viewport height
+
+Use h-svh to set an element’s height to the smallest possible height of the viewport.
+
+<div class="bg-green-300 mb-2 p-2 h-svh">h-svh</div>
+
+7. Hover, focus, and other states
+
+<div class="h-8 hover:h-full">h-8 hover:h-full</div>
+
+8. Arbitrary values
+
+<div class="h-[32rem]">h-[32rem]</div>
+
+----------------------------------------------------
+
+--> Minimum Height
+
+1. Setting the minimum width
+Set the minimum width of an element using min-h-* utilities.
+
+<div class="bg-cyan-300 mb-2 p-2 w-20 min-h-48">min-h-48</div>
+
+2. Hover, focus, and other states
+
+<div class="bg-cyan-300 mb-2 p-2 w-24 min-h-full hover:min-h-0">h-24 min-h-full hover:min-h-0</div>
+
+3. Arbitrary values
+
+<div class="bg-cyan-300 mb-2 p-2 h-50 min-h-[220px]">min-h-[220px]</div>
+
+--> Maximum Height
+
+<<div class="bg-cyan-300 mb-2 p-2 h-20 max-h-48">max-h-48</div>
+<div class="bg-cyan-300 mb-2 p-2 h-10 max-h-[220px]">max-h-[220px]</div> 
+
+---------------------------------------------------------------------
+
+// Size
+
+Utilities for setting the width and height of an element at the same time.
+
+
+1. Fixed sizes:
+
+Use utilities like size-px, size-1, and size-64 to set an element to a fixed width and height at the same time.
+
+<div class="bg-green-300 mb-2 p-2 size-16">Size-16</div>
+<div class="bg-green-300 mb-2 p-2 size-80">Size-80</div>
+
+2. Percentage sizes
+
+Use size-full to set an element’s width and height to be 100% of the parent container’s width and height.
+
+<div class="bg-green-300 mb-2 p-2 size-full">Size-full</div>
+
+3. Resetting the size
+The size-auto utility can be useful if you need to remove an element’s assigned width and height under a specific condition, 
+like at a particular breakpoint:
+
+<div class="bg-green-300 mb-2 p-2 size-full md:size-auto">Size-full md:size-auto</div>
+
+
+4. Hover, focus, and other states
+
+Tailwind lets you conditionally apply utility classes in different states using variant modifiers. 
+For example, use hover:size-full to only apply the size-full utility on hover.
+
+<div class="bg-green-300 mb-2 p-2 size-48 hover:size-full">size-48 hover:size-full</div>
+
+5. Breakpoints and media queries
+
+You can also use variant modifiers to target media queries like responsive breakpoints, dark mode, prefers-reduced-motion, and more. 
+For example, use md:size-full to apply the size-full utility at only medium screen sizes and above.
+
+<div class="bg-green-300 mb-2 p-2 size-48 md:size-full">size-48 md:size-full</div>
+
+6. Arbitrary values
+
+If you need to use a one-off size value that doesn’t make sense to include in your theme, 
+use square brackets to generate a property on the fly using any arbitrary value.
+
+<div class="bg-green-300 mb-2 p-2 size-[120px]">size-[120px]</div>
+
+
+---------------------------------------------------------------** Layout **-------------------------------------------------------------------------------
+
+// Position:
+
+Utilities for controlling how an element is positioned in the DOM.
+
+Class           Properties
+
+static	  -    position: static;
+fixed	    -    position: fixed;
+absolute	-    position: absolute;
+relative	-    position: relative;
+sticky	  -    position: sticky;
+
+---------------------------------------------------------------------------------
+
+1. Statically positioning elements
+
+Use the static utility to position an element according to the normal flow of the document.
+
+<div class="bg-green-300 size-96 static">
+    <p>Static parent</p>
+    <div class="bg-brown-600 size-20 absolute bottom-0 left-0">
+        <p>Absolute child</p>
+    </div>
+</div>
+
+2. Relatively positioning elements
+
+Use the relative utility to position an element according to the normal flow of the document in that parent container.
+
+<div class="bg-green-300 size-96 relative">
+    <div class="bg-brown-600 size-20 absolute bottom-0 left-0">
+        <p>Absolute child</p>
+    </div>
+</div>
+
+
+3. Absolutely positioning elements
+
+Use the absolute utility to position an element outside of the normal flow of the document, 
+Arrange the position of the element according to the parent if parent have relative position,
+otherwise arrange according to root html
+
+<div class="bg-green-300 size-96 relative">
+    <div class="bg-brown-600 size-20 absolute top-0 left-0">
+        <p>Absolute child 1</p>
+    </div>
+    <div class="bg-red-600 size-20 absolute top-0 right-0">
+        <p>Absolute child 2</p>
+    </div>
+    <div class="bg-yellow-600 size-20 absolute bottom-0 left-0">
+        <p>Absolute child 3</p>
+    </div>
+    <div class="bg-cyan-600 size-20 absolute bottom-0 right-0">
+        <p>Absolute child 4</p>
+    </div>
+</div>
+
+4. Fixed positioning elements
+
+Once applied fixed property then the element not moving in body.
+
+<div class="bg-green-300 mb-2 size-96 relative ">
+    <div class="bg-brown-600 size-20 absolute top-0 left-0">
+        <p>Absolute child 1</p>
+    </div>
+    <div class="bg-red-600 size-20 absolute top-0 right-0">
+        <p>Absolute child 2</p>
+    </div>
+    <div class="bg-yellow-600 size-20 absolute bottom-0 left-0">
+        <p>Absolute child 3</p>
+    </div>
+    <div class="bg-cyan-600 size-20 absolute bottom-0 right-0">
+        <p>Absolute child 4</p>
+    </div>
+</div>
+
+<div class="bg-yellow-100 mb-2 size-96">
+    <div class="bg-red-600 size-20 fixed z-10">
+        <p>Absolute child 1</p>
+    </div>
+</div>
+
+<div class="bg-cyan-100 mb-2 size-96 relative">
+    <div class="bg-brown-600 size-20 absolute top-0 left-0">
+        <p>Absolute child 1</p>
+    </div>
+    <div class="bg-red-600 size-20 absolute top-0 right-0">
+        <p>Absolute child 2</p>
+    </div>
+    <div class="bg-yellow-600 size-20 absolute bottom-0 left-0">
+        <p>Absolute child 3</p>
+    </div>
+    <div class="bg-cyan-600 size-20 absolute bottom-0 right-0">
+        <p>Absolute child 4</p>
+    </div>
+</div>
+
+5. Sticky positioning elements
+
+<div class="bg-slate-500 size-full">
+    <div class="bg-red-400 mb-2 size-96">
+        <div class="sticky top-0">A</div>
+        <div>
+            <div>
+                <strong>Andrew Alfred</strong>
+            </div>
+            <div>
+                <strong>Aisha Houston</strong>
+            </div>
+        </div>
+    </div>
+    <div class="bg-red-600 mb-2 size-96">
+        <div class="sticky top-0">B</div>
+        <div>
+            <div>
+                <strong>Bob Alfred</strong>
+            </div>
+        </div>
+    </div>
+    <div class="bg-red-800 mb-2 size-96">
+        <div class="sticky top-0">C</div>
+        <div>
+            <div>
+                <strong>Bob Alfred a</strong>
+            </div>
+        </div>
+    </div>
+    <div class="bg-red-800 mb-2 size-96">
+        <div class="sticky top-0">C</div>
+        <div>
+            <div>
+                <strong>Bob Alfred a</strong>
+            </div>
+        </div>
+    </div>
+    <div class="bg-red-800 mb-2 size-96">
+        <div class="sticky top-0">C</div>
+        <div>
+            <div>
+                <strong>Bob Alfred a</strong>
+            </div>
+        </div>
+    </div>
+</div>
+
+6. Hover, focus, and other states
+
+<div class="relative hover:absolute">
+  <!-- ... -->
+</div>
+
+7. Breakpoints and media queries
+
+<div class="relative md:absolute">
+  <!-- ... -->
+</div>
+
+
+--------------------------------------------------------------------------------
+
+// Container:
+
+A component for fixing an element's width to the current breakpoint.
+
+Class         Breakpoint          Properties
+container	    None	              width: 100%;
+              sm   (640px)	      max-width: 640px;
+              md   (768px)	      max-width: 768px;
+              lg   (1024px)	      max-width: 1024px;
+              xl   (1280px)	      max-width: 1280px;
+              2xl  (1536px)	      max-width: 1536px;
+
+<div class="bg-slate-500 text-white text-center container mx-auto">
+    container class
+</div>
+
+----------------------------------------------------------------------------------
+
+// Columns
+
+1. Utilities for controlling the number of columns within an element.
+2. 
+
+-> columns: <column-width> <column-count>;
+-> You can provide one or two values:
+  -> If one value is given:
+      - If it’s a number → it’s treated as column-count.
+      - If it’s a length (e.g., 200px) → it’s treated as column-width.
+  
+  -> If two values are given → the first is column-width, the second is column-count.
+
+-> Eg.
+
+columns: 1;
+
+means:
+column-count: 1 (only one column).
+column-width: auto (browser decides width normally).
+
+1. columns-1 to columns-12
+2. columns-auto -> columns: auto
+3. columns-3xs  -> columns: 16rem
+4. columns-2xs  -> 
+5. columns-xs   -> 
+6. columns-sm   ->
+7. columns-md   ->
+8. columns-lg   ->
+9. columns-xl   ->
+10. columns-2xl to columns-7xl
+
+-------------------------------
+
+1) 
+
+<div class="columns-2 gap-0">
+  <div class="bg-orange-300 p-2">Column 1</div>
+  <div class="bg-green-300 p-2">Column 2</div>
+</div>
+
+2) 
+
+<div class="columns-3 gap-0">
+  <div class="bg-orange-300 p-2">Column 1</div>
+  <div class="bg-green-300 p-2">Column 2</div>
+  <div class="bg-red-300 p-2">Column 3</div>
+</div>
+
+3) 
+
+<div class="columns-lg gap-0">
+  <div class="bg-orange-300 p-2">Column 1</div>
+  <div class="bg-green-300 p-2">Column 2</div>
+  <div class="bg-red-300 p-2">Column 3</div>
+  <div class="bg-cyan-300 p-2">Column 4</div>
+  <div class="bg-amber-300 p-2">Column 5</div>
+  <div class="bg-blue-300 p-2">Column 6</div>
+</div>
+
+4) Arbitrary Values
+
+<div class="columns-[30rem]">
+  <div class="bg-orange-300 p-2">Column 1</div>
+  <div class="bg-green-300 p-2">Column 2</div>
+  <div class="bg-red-300 p-2">Column 3</div>
+  <div class="bg-cyan-300 p-2">Column 4</div>
+  <div class="bg-amber-300 p-2">Column 5</div>
+  <div class="bg-blue-300 p-2">Column 6</div>
+</div>
+
+------------------------------------------------------------** Backgrounds Class **-------------------------------------------------------------------
+
+// Backgrounds
+
+Utilities for controlling the background size of an element's background image.
+
+1. Background size
+
+1) Auto - bg-auto	background-size: auto;
+
+Use bg-auto to display the background image at its default size.
+
+<div class="h-64 w-64 bg-auto" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>
+
+2) Cover - bg-cover	background-size: cover;
+
+Use bg-cover to scale the background image until it fills the background layer.
+
+<div class="h-64 bg-cover" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>
+
+3) Contain - bg-contain	background-size: contain;
+
+Use bg-contain to scale the background image to the outer edges without cropping or stretching.
+
+<div class="h-64 bg-contain bg-no-repeat bg-center" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>
+
+4) Hover, focus, and other states
+
+<div class="h-64 bg-contain bg-no-repeat bg-center hover:bg-cover" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>
+
+5) Arbitrary values
+
+If you need to use a one-off background-size value that doesn’t make sense to include in your theme, 
+use square brackets to generate a property on the fly using any arbitrary value.
+
+bg-[length:200px_100px]:
+
+.bg-\[length\:200px_100px\] {
+    background-size: 200px 100px;
+}
+
+<div class="h-64 bg-[length:200px_100px] bg-no-repeat bg-center" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>
+
+------------------------------------------------------------------------------
+
+// Background Color
+
+1. Setting the background color
+
+  <div class="h-20 mb-2 bg-cyan-300"></div>
+  <div class="h-20 mb-2 bg-white border-2"></div>
+  <div class="h-20 mb-2 bg-transparent border-2"></div>
+
+2. Changing the opacity
+
+Use the color opacity modifier to control the opacity of an element’s background color.
+
+  <div class="h-20 mb-2 bg-cyan-300/10"></div>
+  <div class="h-20 mb-2 bg-cyan-300/30"></div>
+  <div class="h-20 mb-2 bg-cyan-300/60"></div>
+
+3. You can use any value defined in your opacity scale, or use arbitrary values if you need to deviate from your design tokens.
+
+<div class="h-20 mb-2 bg-cyan-300/[0.09]"></div>
+
+4. Arbitrary values
+
+<div class="h-20 mb-2 bg-[#48ce17]"></div>
+
+------------------------------------------------------------------------------
+
+// Background Attachment
+
+Utilities for controlling how a background image behaves when scrolling.
+
+1) bg-fixed -	background-attachment: fixed;
+
+Use bg-fixed to fix the background image relative to the viewport.
+
+<div class="h-64 border-2 border-cyan-500 overflow-auto">
+  <div class="h-64 bg-cover bg-no-repeat bg-center bg-fixed" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>
+
+  <div class="text-start p-2">
+    <h2>My trip to the summit</h2>
+    <p>November 16, 2021 · 4 min read</p>
+    <p>Maybe we can live without libraries, people like you and me. Maybe. 
+        Sure, we're too old to change the world, but what about that kid, sitting down, opening a book, right now, in a branch at the local library and finding drawings of pee-pees and wee-wees on the Cat in the Hat and the Five Chinese Brothers? Doesn't HE deserve better?
+        Look. If you think this is about overdue fines and missing books, you'd better think again. This is about that kid's right to read a book without getting his mind warped! Or: maybe that turns you on, Seinfeld; maybe that's how y'get your kicks. You and your good-time buddies.
+    </p>
+  </div>
+</div>
+
+
+2) bg-local	- background-attachment: local;
+
+Use bg-local to scroll the background image with the container and the viewport.
+
+<div class="h-64 m-2 border-2 border-cyan-500 overflow-auto">
+  <div class="h-64 bg-contain bg-no-repeat bg-center bg-local" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>
+
+  <div class="text-start p-2">
+    <h2>My trip to the summit</h2>
+    <p>November 16, 2021 · 4 min read</p>
+    <p>Maybe we can live without libraries, people like you and me. Maybe. 
+        Sure, we're too old to change the world, but what about that kid, sitting down, opening a book, right now, in a branch at the local library and finding drawings of pee-pees and wee-wees on the Cat in the Hat and the Five Chinese Brothers? Doesn't HE deserve better?
+        Look. If you think this is about overdue fines and missing books, you'd better think again. This is about that kid's right to read a book without getting his mind warped! Or: maybe that turns you on, Seinfeld; maybe that's how y'get your kicks. You and your good-time buddies.
+    </p>
+  </div>
+</div>
+
+
+3) bg-scroll - background-attachment: scroll;
+
+Use bg-scroll to scroll the background image with the viewport, but not with the container.
+
+<div class="h-64 m-2 border-2 border-cyan-500 overflow-auto">
+  <div class="h-64 bg-cover bg-no-repeat bg-center bg-scroll" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>
+
+  <div class="text-start p-2">
+    <h2>My trip to the summit</h2>
+    <p>November 16, 2021 · 4 min read</p>
+    <p>Maybe we can live without libraries, people like you and me. Maybe. 
+        Sure, we're too old to change the world, but what about that kid, sitting down, opening a book, right now, in a branch at the local library and finding drawings of pee-pees and wee-wees on the Cat in the Hat and the Five Chinese Brothers? Doesn't HE deserve better?
+        Look. If you think this is about overdue fines and missing books, you'd better think again. This is about that kid's right to read a book without getting his mind warped! Or: maybe that turns you on, Seinfeld; maybe that's how y'get your kicks. You and your good-time buddies.
+    </p>
+  </div>
+</div>
+
+
+---------------------------------------------------------------------------
+
+// Background Clip
+
+Utilities for controlling the bounding box of an element's background.
+
+1. bg-clip-border	- background-clip: border-box;
+
+<div class="bg-clip-border p-6 m-2 bg-violet-600 border-4 border-violet-300 border-dashed">bg-clip-border </div>
+
+2. bg-clip-padding - background-clip: padding-box;
+
+<div class="bg-clip-padding p-6 m-2 bg-violet-600 border-4 border-violet-300 border-dashed">bg-clip-padding</div>
+
+3. bg-clip-content - background-clip: content-box;
+
+<div class="bg-clip-content p-6 m-2 bg-violet-600 border-4 border-violet-300 border-dashed">bg-clip-content</div>
+
+4. bg-clip-text	- background-clip: text;
+
+<div class="m-2 text-5xl font-extrabold">
+    <span class="bg-gradient-to-r from-pink-500 to-violet-500 text-transparent bg-clip-text">
+        Hello world
+    </span>
+</div>
+
+
+-----------------------------------------------------------------------
+
+// Background Origin
+
+Utilities for controlling how an element's background is positioned relative to borders, padding, and content.
+
+1. bg-origin-border	- background-origin: border-box;
+
+<div class="bg-origin-border h-64 bg-cover bg-no-repeat m-3 p-4 border-4 border-dashed" style="background-image: url(./SampleJPGImage_10mbmb.jpg)"></div>
+
+2. bg-origin-padding - background-origin: padding-box;
+
+<div class="bg-origin-padding h-64 bg-cover bg-no-repeat m-3 p-4 border-4 border-dashed" style="background-image: url(./SampleJPGImage_10mbmb.jpg)"></div>
+
+
+3. bg-origin-content	- background-origin: content-box;
+
+<div class="bg-origin-content h-64 bg-cover bg-no-repeat m-3 p-4 border-4 border-dashed" style="background-image: url(./SampleJPGImage_10mbmb.jpg)"></div>
+
+------------------------------------------------------------------------
+
+// Background Position
+
+Utilities for controlling the position of an element's background image.
+
+1. Setting the background position
+
+Use utilities like bg-center, bg-right, and bg-left-top to the position of an element’s background image.
+
+<div class="h-48 bg-contain bg-no-repeat bg-center" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>    
+<div class="h-48 bg-contain bg-no-repeat bg-left" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>    
+<div class="h-48 bg-contain bg-no-repeat bg-right" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>    
+<div class="size-48 bg-contain bg-no-repeat bg-top" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>    
+<div class="size-52 bg-contain bg-no-repeat bg-bottom" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>    
+<div class="size-52 bg-contain bg-no-repeat bg-left-top" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>    
+<div class="size-52 bg-contain bg-no-repeat bg-left-bottom" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>    
+<div class="h-48 bg-contain bg-no-repeat bg-right-top" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>    
+<div class="h-48 bg-contain bg-no-repeat bg-right-bottom" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>  
+
+2. Arbitrary values
+
+<div class="h-48 bg-contain bg-no-repeat bg-[center_top_2rem]" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>
+
+----------------------------------------------------------------------------
+
+// Background Repeat
+
+Utilities for controlling the repetition of an element's background image.
+
+1. bg-repeat	- background-repeat: repeat;
+
+Use bg-repeat to repeat the background image both vertically and horizontally.
+
+<div class="h-48 bg-contain bg-repeat" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>
+
+2. bg-no-repeat	- background-repeat: no-repeat;
+
+Use bg-no-repeat when you don’t want to repeat the background image.
+
+<div class="h-48 bg-contain bg-no-repeat" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div> 
+
+3. bg-repeat-x	- background-repeat: repeat-x;
+
+Use bg-repeat-x to repeat the background image only horizontally.
+
+<div class="h-48 bg-contain bg-repeat-x" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>
+
+4. bg-repeat-y	- background-repeat: repeat-y;
+
+Use bg-repeat-y to repeat the background image only vertically.
+
+<div class="h-48 bg-contain bg-repeat-y" style="background-image: url(./SampleJPGImage_10mbmb.jpg);"></div>  
+
+5. bg-repeat-round	- background-repeat: round;
+
+6. bg-repeat-space	- background-repeat: space;
+
+--------------------------------------------------------------------------
+
+// Gradient
+
+1. Linear gradients
+
+Use the bg-gradient-* utilities in combination with the gradient color stop utilities to give an element a linear gradient background.
+
+<div class="h-14 m-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-transparent bg-clip-text text-3xl">Hello</div>
+<div class="h-14 m-2 bg-gradient-to-r from-sky-500 to-indigo-500"></div>
+<div class="h-14 m-2 bg-gradient-to-l from-cyan-500 to-blue-500 text-transparent bg-clip-text text-3xl">Hello</div>
+<div class="h-14 m-2 bg-gradient-to-l from-sky-500 to-indigo-500"></div>
+
+<div class="h-14 m-2 text-white text-center bg-gradient-to-r from-red-500 to-indigo-500">bg-gradient-to-r from-red-500 to-indigo-500</div>
+
+---------------------------------------------------------------------
+
+// Background image
+
+1. Arbitrary values
+
+<div class="h-52 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')]"></div>
+
+
+-------------------------------------------------------------** Filters **-------------------------------------------------------------------------
+
+NOTE: 
+
+1. If no need filter then add below in config
+
+corePlugins: {
+    filter: false
+}
+
+/** @type {import('tailwindcss').Config} */
+
+const colors = require('tailwindcss/colors')
+
+module.exports = {
+  content: [
+    './*.{html,js}',
+    './style.css'
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+  corePlugins: {
+    filter: false
+  }
+}
+
+2. Or add class in the element 
+
+-> filter-none
+-> Eg. 
+  <div class="blur-md invert contrast-125 md:filter-none">
+    <!-- ... -->
+  </div>
+
+-------------------------------------------------------------------
+
+1. Blur
+
+-> Utilities for applying blur filters to an element.
+-> Apply blur effect in the image
+-> 
+  - A higher value → stronger blur, more fuzzy.
+  - A lower value → slight blur.
+  - 0 → no blur (sharp, normal).
+-> Give value in unit ([value]px).
+
+1) blur-none	- filter:  ;
+
+<div class="h-52 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] blur-none"></div>
+
+2) blur-sm	- filter: blur(4px);
+
+<div class="h-52 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] blur-sm"></div>
+
+3) blur	- filter: blur(8px);
+
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] blur"></div>
+
+4) blur-md	- filter: blur(12px);
+
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] blur-md"></div>
+
+5) blur-lg	- filter: blur(16px);
+
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] blur-lg"></div>
+
+6) blur-xl	- filter: blur(24px);
+
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] blur-xl"></div>
+
+7) blur-2xl	- filter: blur(40px);
+
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] blur-2xl"></div>
+
+8) blur-3xl	- filter: blur(64px);
+
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] blur-3xl"></div>
+
+------------------------------------------------------------------------
+
+2. Brightness
+
+-> Utilities for applying brightness filters to an element.
+-> applies a brightness adjustment to an element.
+-> 
+
+  - 1 → Normal brightness (no change).
+  - <1 (e.g., 0.5) → Darker (50% brightness).
+  - >1 (e.g., 3) → Brighter (300% brightness).
+  - 0 → Completely black.
+-> -> Give value in number.
+
+
+1) Changing element brightness
+
+Use the brightness-* utilities to control an element’s brightness.
+
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-0"></div>   
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-50"></div>   
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-75"></div>   
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-90"></div>   
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-95"></div>   
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-100"></div>   
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-105"></div>   
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-110"></div>   
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-125"></div>   
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-150"></div>   
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-200"></div>   
+
+2) Hover, focus, and other states
+
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-50 hover:brightness-150"></div> 
+
+
+3) Arbitrary 
+
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] brightness-[1.75]"></div>
+
+--------------------------------------------------------------------------
+
+3. Contrast
+
+1) Changing element contrast
+
+-> Utilities for applying contrast filters to an element.
+-> Image showing as grayies type or light & dark color mixer.
+-> Controls the difference between light and dark parts of an element.
+-> The value is a multiplier:
+
+  - 1 → Default (100%) contrast, no change.
+  - <1 (e.g., 0.5) → Decreases contrast, making the image look more washed-out and grayish.
+  - >1 (e.g., 2) → Increases contrast, making darks darker and brights brighter.
+  - 0 → Completely gray (no contrast).
+-> Give value in number.
+
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')]"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] contrast-0"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] contrast-50"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] contrast-75"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] contrast-100"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] contrast-125"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] contrast-150"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] contrast-200"></div>
+
+
+2) Arbitrary values
+
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] contrast-[.25]"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] contrast-[2]"></div>
+
+-----------------------------------------------------------------------
+
+4. Drop Shadow
+
+1) Adding a drop shadow
+
+-> Utilities for applying drop-shadow filters to an element.
+-> filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.05));
+-> applies a drop shadow effect to the rendered element, similar to box-shadow, but with some key differences.
+-> Breakdown of the values:
+  -> drop-shadow() → Creates a shadow based on the actual rendered shape of the element (including transparency), not just its box.
+  -> Parameters inside:
+    - 0 → X-offset (no horizontal shift).
+    - 1px → Y-offset (shadow appears 1px below the element).
+    - 1px → Blur radius (small blur for soft edges).
+    - rgb(0 0 0 / 0.05) → Shadow color: black with only 5% opacity, making it very subtle.
+
+
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] drop-shadow-sm"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] drop-shadow"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] drop-shadow-md"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] drop-shadow-lg"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] drop-shadow-xl"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] drop-shadow-2xl"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] drop-shadow-none"></div>
+
+
+2) Arbitrary values
+
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]"></div>
+
+------------------------------------------------------------------------
+
+5. Grayscale
+
+-> Utilities for applying grayscale filters to an element.
+-> grayscale() converts colors to shades of gray.
+-> It takes a value between 0 and 1 (or percentages):
+  - 0 → No effect (full color, normal).
+  - 1 (or 100%) → Fully grayscale (black & white).
+  - Values in between (e.g., 0.5 or 50%) → Partially desaturated, mix of color and gray.
+-> Give value in Percentage (%).
+
+1) Making an element grayscale
+
+Use the grayscale and grayscale-0 utilities to control whether an element should be rendered as grayscale or in full color.
+
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] grayscale-0"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] grayscale"></div>
+
+2) Arbitrary values
+
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] grayscale-[50%]"></div>
+
+--------------------------------------------------------------------------
+
+6. Hue Rotate
+
+-> Utilities for applying hue-rotate filters to an element.
+-> hue-rotate() shifts all colors around the color wheel by the given angle.
+-> The value is in degrees (deg):
+
+  - 0deg → No change.
+  - 90deg → Shifts colors by a quarter turn (reds → greens, blues → purples, etc.).
+  - 180deg → Opposite colors (complementary).
+  - 360deg → Full rotation, back to the original colors.
+
+
+1) Rotating an element’s hue
+
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')]"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] hue-rotate-0"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] hue-rotate-15"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] hue-rotate-30"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] hue-rotate-60"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] hue-rotate-90"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] hue-rotate-180"></div>
+
+2) Arbitrary Values
+
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] hue-rotate-[200deg]"></div>
+
+
+------------------------------------------------------------------------
+
+7. Invert
+
+-> Utilities for applying invert filters to an element.
+-> invert() inverts the colors (like a photo negative).
+-> The value is a number between 0 and 1 (or 0% to 100%):
+  - 0 → No effect (normal colors).
+  - 1 (or 100%) → Fully inverted (black → white, blue → yellow, etc.).
+  - Values in between (e.g., 0.5 or 50%) → Partially inverted, blending original and inverted colors.
+
+1) Inverting an element’s color
+
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] invert-0"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] invert"></div>
+
+2) Arbitrary Values
+
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] invert-[0.7]"></div>
+
+-------------------------------------------------------------------------
+
+8. Saturate
+
+-> Utilities for applying saturation filters to an element.
+-> saturate() controls the intensity of colors.
+-> The value is a multiplier:
+
+  - 1 → Normal saturation (no change).
+  - <1 (e.g., 0.5) → Desaturates colors (closer to gray).
+  - 0 → Completely grayscale.
+  - >1 (e.g., 2) → Increases saturation, making colors more vivid and intense.
+
+1) Changing element saturation
+
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] saturate-0"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] saturate-50"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] saturate-100"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] saturate-150"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] saturate-200"></div>
+
+2) Arbitrary values
+
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] saturate-[.75]"></div> - saturate-75
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] saturate-[3]"></div> - saturate-300
+
+
+-------------------------------------------------------------------------
+
+9. Sepia
+
+-> Utilities for applying sepia filters to an element.
+-> sepia() gives content a warm, brownish tone (like old photographs).
+-> The value is a number between 0 and 1 (or 0% to 100%):
+  - 0 → No effect (normal colors).
+  - 1 (or 100%) → Full sepia effect (everything looks brown/yellow toned).
+  - Values in between (e.g., 0.5) → Partially sepia-toned, mixing original color with sepia.
+
+1) Adding sepia filters
+
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] sepia-0"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] sepia"></div>
+
+2) Arbitrary values
+
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] sepia-[0.5]"></div>
+<div class="h-52 m-2 bg-contain bg-no-repeat bg-center bg-[url('./SampleJPGImage_10mbmb.jpg')] sepia-[0.75]"></div>
+
+
+-----------------------------------------------------------** Backdrop Properties **---------------------------------------------------
+
+-> applies a blur effect to the background behind an element, not to the element itself.
+-> backdrop-filter affects the backdrop (whatever is visible through the element, like the page background or elements behind it).
+-> The element itself (like text, borders, or foreground content) stays clear — only the background visible through it gets blurred.
+
+1. Backdrop Blur
+
+Utilities for applying backdrop blur filters to an element. 
+
+<div class="card backdrop-blur">backdrop-filter: blur(10px)</div>
+
+2. Backdrop brightness
+
+backdrop-brightness-50
+
+3. Backdrop contrast
+
+backdrop-contrast-50
+
+4. Backdrop grayscale
+
+backdrop-grayscale-0
+backdrop-grayscale
+
+5. Backdrop hue-rotate
+
+backdrop-hue-rotate-15
+backdrop-hue-rotate-30
+
+6. Backdrop invert
+
+backdrop-invert-0
+backdrop-invert
+
+7. Backdrop opacity
+
+backdrop-opacity-5
+backdrop-opacity-10
+
+8. Backdrop saturate
+
+backdrop-saturate-50
+
+9. Backdrop sepia
+
+backdrop-sepia-0
+backdrop-sepia
+
+
+---------------------------------------------------------** Group Hover **-------------------------------------------------------------
+
+-> group-hover is a special variant that lets you style a child element when its parent (with the class group) is hovered.
+
+<div class="group">
+  <a href="#">
+      <h1 class="group-hover:bg-black group-hover:text-white">Hover 1</h1>
+      <h1 class="group-hover:bg-black group-hover:text-white">Hover 2</h1>
+  </a>
+</div>
+
+---------------------------------------------------------** Responsive Design **--------------------------------------------------------
+
+// Default Breakpoints
+
+1. sm	  ->  640px	@media (min-width: 640px) { ... }
+2. md	  ->  768px	@media (min-width: 768px) { ... }
+3. lg	  ->  1024px	@media (min-width: 1024px) { ... }
+4. xl	  ->  1280px	@media (min-width: 1280px) { ... }
+5. 2xl  ->	1536px	@media (min-width: 1536px) { ... }
+
+
+// Custom Breakpoints
+
+In Tailwind CSS v3, you can customize (add or override) breakpoints inside the tailwind.config.js file using the theme.screens key.
+
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      screens: {
+        'xs': '480px',    // custom small breakpoint
+        '3xl': '1600px',  // extra large custom breakpoint
+        'md': '900px'
+      },
+    },
+  },
+  plugins: [],
+}
+
+<div class="bg-red-500 xs:bg-blue-500 md:bg-green-300 3xl:bg-green-500">
+  Responsive box
+</div>
+
+--------------------------------------------------------** Flex Classes **-----------------------------------------------------------
+
+// Flex Basis
+
+-> flex-basis in CSS Flexbox defines the initial size of a flex item before extra space is distributed or shrinking happens.
+-> It sets the main size of the item (depending on flex-direction):
+  -> If flex-direction: row → flex-basis controls width.
+  -> If flex-direction: column → flex-basis controls height.
+-> It works before flex-grow and flex-shrink kick in.
+-> If you also set width/height, flex-basis usually overrides them (unless set to auto).
+-> Eg. flex-basis: 200px; /* initial size is 200px */
+
+1) Setting the flex basis
+
+<div class="flex flex-row">
+  <div class="bg-orange-300 h-60 basis-28">01</div>
+  <div class="bg-green-300 h-60 basis-56">02</div>
+  <div class="bg-red-300 h-60 basis-80">03</div>
+  <div class="bg-cyan-300 h-60 w-60 basis-auto">04</div>
+  <div class="bg-brown-500 h-60 basis-2.5">05</div>
+  <div class="bg-green-500 h-60 basis-1/2">06</div>
+</div>
+
+2) flex-basis: auto;
+
+-> The initial size of the flex item is based on its content size or any width/height you set on it.
+-> In other words:
+  -> If you gave the item a width (in row direction) or height (in column direction), flex-basis: auto will use that.
+  -> If no width/height is defined, it will shrink/grow from its content’s natural size.
+
+<div class="flex flex-row">
+  <div class="bg-cyan-300 h-60 w-60 basis-auto">04</div>
+</div>
+
+3) Arbitrary values
+
+<div class="flex flex-row">
+  <div class="bg-cyan-300 h-60 w-60 basis-[14.2857143%]">04</div>
+</div>
+
+4) Customizing your theme
+
+module.exports = {
+  theme: {
+    extend: {
+      flexBasis: {
+        '1/7': '14.2857143%',
+        '2/7': '28.5714286%',
+        '3/7': '42.8571429%',
+        '4/7': '57.1428571%',
+        '5/7': '71.4285714%',
+        '6/7': '85.7142857%',
+      }
+    }
+  }
+}
+
+--------------------------------------------------------------------------------
+
+// Flex Grow
+
+-> Utilities for controlling how flex items grow.
+-> flex-grow is one of the Flexbox properties that controls how much a flex item can grow 
+    relative to its siblings when extra space is available in the flex container.
+-> Default = 0 → item will not grow (stays at its flex-basis or content size).
+-> Positive number (like 1, 2, etc.) → item can grow.
+-> It’s relative, not an absolute pixel value.
+
+1) Grow
+
+<div class="flex">
+  <div class="bg-orange-300 size-60 grow">01</div>
+  <div class="bg-green-300 size-60 grow-0">02</div>
+  <div class="bg-red-300 size-60 grow">03</div>
+</div>
+
+2) Arbitrary values
+
+<div class="flex">
+  <div class="bg-cyan-300 size-60 grow-[2]">04</div>
+</div>
+
+3) Customizing your theme
+
+module.exports = {
+  theme: {
+    extend: {
+      flexGrow: {
+        2: '2'
+      }
+    }
+  }
+}
+
+--------------------------------------------------------------------------------
+
+// Flex Shrink
+
+-> Utilities for controlling how flex items shrink.
+-> flex-shrink is the opposite of flex-grow in CSS Flexbox.
+  It controls how much a flex item is allowed to shrink when there isn’t enough space in the flex container.
+-> Default = 1 → items can shrink if needed.
+-> 0 → item will not shrink (stays at its flex-basis or width/height, even if it overflows).
+-> Higher numbers (like 2, 3, etc.) → shrink faster compared to others.
+
+1) shrink
+
+<div class="flex">
+  <div class="bg-orange-300 size-60 shrink">01</div>
+  <div class="bg-green-300 size-60 shrink-0">02</div>
+  <div class="bg-red-300 size-60 shrink">03</div>
+</div>
+
+2) Arbitrary values
+
+<div class="flex">
+  <div class="bg-cyan-300 size-60 shrink-[2]">04</div>
+</div>
+
+3) Customizing your theme
+
+module.exports = {
+  theme: {
+    extend: {
+      flexShrink: {
+        2: '2'
+      }
+    }
+  }
+}
+
+-------------------------------------------------------------------------------
+
+// Flex
+
+-> Utilities for controlling how flex items both grow and shrink.
+
+1) flex-1	 - flex: 1 1 0%;
+
+-> flex: 1 is actually a shorthand for: flex: 1 1 0;
+
+<div class="flex">
+  <div class="bg-orange-300 size-60 flex-1">01</div>
+  <div class="bg-green-300 size-60 flex-1">02</div>
+  <div class="bg-cyan-300 size-60 flex-1">03</div>
+</div>
+
+2) flex-auto	 - flex: 1 1 auto;
+
+<div class="flex">
+  <div class="bg-orange-300 size-60 flex-1">01</div>
+  <div class="bg-green-300 size-60 flex-1">02</div>
+  <div class="bg-cyan-300 size-60 flex-auto">03</div>
+</div>
+
+3) flex-initial - flex: 0 1 auto; - all default values
+
+<div class="flex">
+  <div class="bg-orange-300 size-60 flex-1">01</div>
+  <div class="bg-green-300 size-60 flex-1">02</div>
+  <div class="bg-cyan-300 size-60 flex-initial">03</div>
+</div>
+
+4) flex-none - flex: none;
+
+<div class="flex">
+  <div class="bg-orange-300 size-60 flex-1">01</div>
+  <div class="bg-green-300 size-60 flex-none">02</div>
+  <div class="bg-cyan-300 size-60 flex-1">03</div>
+</div>
+
+2) Arbitrary values
+
+<div class="flex">
+  <div class="bg-orange-300 size-60 flex-[2]">01</div>
+  <div class="bg-green-300 size-60 flex-none">02</div>
+  <div class="bg-cyan-300 size-60 flex-[2_2_0%]">03</div>
+</div>
+
+3) Customizing your theme
+
+module.exports = {
+  theme: {
+    extend: {
+      flex: {
+        '2': '2 2 0%'
+      }
+    }
+  }
+}
+
+-------------------------------------------------------------------------------
+
+// Flex Direction
+
+-> Utilities for controlling the direction of flex items.
+
+1) Row
+
+1. flex-direction: row
+
+<div class="flex flex-row">
+  <div class="bg-orange-300 h-60 basis-28">01</div>
+  <div class="bg-green-300 h-60 basis-56">02</div>
+  <div class="bg-red-300 h-60 basis-80">03</div>
+  <div class="bg-cyan-300 h-60 w-60 basis-auto">04</div>
+  <div class="bg-brown-500 h-60 basis-2.5">05</div>
+  <div class="bg-green-500 h-60 basis-1/2">06</div>
+</div>
+
+2. flex-direction: row-reverse
+
+<div class="flex flex-row-reverse">
+  <div class="bg-orange-300 h-60 basis-28">01</div>
+  <div class="bg-green-300 h-60 basis-56">02</div>
+  <div class="bg-red-300 h-60 basis-80">03</div>
+  <div class="bg-cyan-300 h-60 w-60 basis-auto">04</div>
+  <div class="bg-brown-500 h-60 basis-2.5">05</div>
+  <div class="bg-green-500 h-60 basis-1/2">06</div>
+</div>
+
+2) Column
+
+1. flex-direction: column
+
+<div class="flex flex-col">
+  <div class="bg-orange-300 w-60 basis-28">01</div>
+  <div class="bg-green-300 w-60 basis-56">02</div>
+  <div class="bg-red-300 w-60 basis-80">03</div>
+  <div class="bg-cyan-300 size-60 basis-auto">04</div>
+  <div class="bg-brown-500 h-60 basis-2.5">05</div>
+  <div class="bg-green-500 h-60 basis-1/2">06</div>
+</div>
+
+2. flex-direction: column-reverse
+
+<div class="flex flex-col-reverse">
+  <div class="bg-orange-300 w-60 basis-28">01</div>
+  <div class="bg-green-300 w-60 basis-56">02</div>
+  <div class="bg-red-300 w-60 basis-80">03</div>
+  <div class="bg-cyan-300 size-60 basis-auto">04</div>
+  <div class="bg-brown-500 h-60 basis-2.5">05</div>
+  <div class="bg-green-500 h-60 basis-1/2">06</div>
+</div>
+
+
+---------------------------------------------------------------------
+
+// Flex Wrap
+
+-> Utilities for controlling how flex items wrap.
+
+1) flex-wrap: wrap;
+
+<div class="flex flex-wrap">
+  <div class="bg-orange-300 size-60">01</div>
+  <div class="bg-green-300 size-60">02</div>
+  <div class="bg-red-300 size-60">03</div>
+  <div class="bg-cyan-300 size-60">04</div>
+  <div class="bg-brown-500 size-60">05</div>
+  <div class="bg-green-500 size-60">06</div>
+</div>
+
+2) flex-wrap: wrap-reverse;
+
+<div class="flex flex-wrap-reverse">
+  <div class="bg-orange-300 size-60">01</div>
+  <div class="bg-green-300 size-60">02</div>
+  <div class="bg-red-300 size-60">03</div>
+  <div class="bg-cyan-300 size-60">04</div>
+  <div class="bg-brown-500 size-60">05</div>
+  <div class="bg-green-500 size-60">06</div>
+</div>
+
+3) flex-wrap: nowrap;
+
+<div class="flex flex-nowrap">
+  <div class="bg-orange-300 size-60">01</div>
+  <div class="bg-green-300 size-60">02</div>
+  <div class="bg-red-300 size-60">03</div>
+  <div class="bg-cyan-300 size-60">04</div>
+  <div class="bg-brown-500 size-60">05</div>
+  <div class="bg-green-500 size-60">06</div>
+</div>
+
+----------------------------------------------------------------------
+
+// Order
+
+-> In CSS Flexbox, the order property controls the visual order of flex items inside their container — without changing the HTML markup.
+-> Default = 0
+-> Lower values come first
+-> Higher values come later
+
+1) Utilities for controlling the order of flex and grid items.
+
+<div class="flex">
+  <div class="bg-orange-300 size-60 flex-[2] order-3">01</div>
+  <div class="bg-green-300 size-60 flex-none order-4">02</div>
+  <div class="bg-cyan-300 size-60 flex-[2_2_0%] order-1">03</div>
+</div>
+
+2) 
+
+-> order-first	order: -9999;
+-> order-last	order: 9999;
+
+<div class="flex">
+  <div class="order-last">01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+
+3) Using negative values
+
+-> To use a negative order value, prefix the class name with a dash to convert it to a negative value.
+
+<div class="flex">
+  <div class="bg-orange-300 size-60 flex-[2] order-3">01</div>
+  <div class="bg-green-300 size-60 flex-none -order-4">02</div>
+  <div class="bg-cyan-300 size-60 flex-[2_2_0%] order-1">03</div>
+</div>
+
+4) Arbitrary values
+
+<div class="flex">
+  <div class="bg-orange-300 size-60 flex-[2] order-[3]">01</div>
+</div>
+
+5) Customizing your theme
+
+module.exports = {
+  theme: {
+    extend: {
+      order: {
+        '13': '13'
+      }
+    }
+  }
+}
+
+-------------------------------------------------------------------------
+
+// 

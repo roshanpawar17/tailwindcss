@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --color-primary: #4361EE;
+        --color-secondary: 111 114 185;
+        --color-ternary: 333deg 100% 73%;
+        --filter-blur-color: 0, 0, 0, 0.3;
+        --backdrop-blur-color: 0, 0, 0, 0.5;
+    }
+}
