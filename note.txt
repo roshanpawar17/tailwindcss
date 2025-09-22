@@ -2042,4 +2042,302 @@ module.exports = {
 
 -------------------------------------------------------------------------
 
-// 
+// Gap
+
+-> Utilities for controlling gutters between grid and flexbox items.
+
+1) Setting the gap between elements
+
+Use the gap-* utilities to change the gap between both rows and columns in grid and flexbox layouts.
+
+<div class="flex flex-wrap gap-4">
+  <div class="bg-orange-300 size-60">01</div>
+  <div class="bg-green-300 size-60">02</div>
+  <div class="bg-cyan-300 size-60">03</div>
+  <div class="bg-orange-300 size-60">04</div>
+  <div class="bg-green-300 size-60">05</div>
+  <div class="bg-cyan-300 size-60">06</div>
+</div>
+
+2) Changing row and column gaps independently
+
+Use the gap-x-* and gap-y-* utilities to change the gap between columns and rows independently.
+
+-> x-axis
+
+<div class="flex flex-wrap gap-x-4">
+  <div class="bg-orange-300 size-60">01</div>
+  <div class="bg-green-300 size-60">02</div>
+  <div class="bg-cyan-300 size-60">03</div>
+  <div class="bg-orange-300 size-60">04</div>
+  <div class="bg-green-300 size-60">05</div>
+  <div class="bg-cyan-300 size-60">06</div>
+</div>
+
+-> y-axis
+
+<div class="flex flex-wrap gap-y-4">
+  <div class="bg-orange-300 size-60">01</div>
+  <div class="bg-green-300 size-60">02</div>
+  <div class="bg-cyan-300 size-60">03</div>
+  <div class="bg-orange-300 size-60">04</div>
+  <div class="bg-green-300 size-60">05</div>
+  <div class="bg-cyan-300 size-60">06</div>
+</div>
+
+3) Arbitrary values
+
+<div class="flex flex-wrap gap-[2.5rem]">
+  <div class="bg-orange-300 size-60">01</div>
+  <div class="bg-green-300 size-60">02</div>
+  <div class="bg-cyan-300 size-60">03</div>
+  <div class="bg-orange-300 size-60">04</div>
+  <div class="bg-green-300 size-60">05</div>
+  <div class="bg-cyan-300 size-60">06</div>
+</div>
+
+
+-------------------------------------------------------------------------
+
+// Justify Content
+
+Utilities for controlling how flex and grid items are positioned along a container's main axis.
+
+1) normal
+
+-> Use justify-normal to pack content items in their default position as if no justify-content value was set:
+
+<div class="flex flex-wrap gap-[2.5rem] justify-normal">
+  <div class="bg-orange-300 size-60">01</div>
+  <div class="bg-green-300 size-60">02</div>
+  <div class="bg-cyan-300 size-60">03</div>
+</div>
+
+2) Start
+
+-> Use justify-start to justify items against the start of the container’s main axis:
+
+<div class="flex flex-wrap gap-[2.5rem] justify-start">
+  <div class="bg-orange-300 size-60">01</div>
+  <div class="bg-green-300 size-60">02</div>
+  <div class="bg-cyan-300 size-60">03</div>
+</div>
+
+3) Center
+
+-> Use justify-center to justify items along the center of the container’s main axis:
+
+<div class="flex flex-wrap gap-[2.5rem] justify-center">
+  <div class="bg-orange-300 size-60">01</div>
+  <div class="bg-green-300 size-60">02</div>
+  <div class="bg-cyan-300 size-60">03</div>
+</div>
+
+4) End
+
+-> Use justify-end to justify items against the end of the container’s main axis:
+
+<div class="flex flex-wrap gap-[2.5rem] justify-end">
+  <div class="bg-orange-300 size-60">01</div>
+  <div class="bg-green-300 size-60">02</div>
+  <div class="bg-cyan-300 size-60">03</div>
+</div>
+
+5) Space between
+
+-> Use justify-between to justify items along the container’s main axis such that there is an equal amount of space between each item:
+
+<div class="flex flex-wrap justify-between">
+  <div class="bg-orange-300 size-60">01</div>
+  <div class="bg-green-300 size-60">02</div>
+  <div class="bg-cyan-300 size-60">03</div>
+</div>
+
+6) Space around
+
+-> Use justify-around to justify items along the container’s main axis such that there is an equal amount of space on each side of each item:
+-> That mean - Each item has half-space on the left + half-space on the right.
+-> Start and End edges have half space & between items 2x space
+
+<div class="flex flex-wrap justify-around">
+  <div class="bg-orange-300 size-60">01</div>
+  <div class="bg-green-300 size-60">02</div>
+  <div class="bg-cyan-300 size-60">03</div>
+</div>
+
+7) Space evenly
+
+-> Puts equal space everywhere — including at the edges.
+-> Start, between items, and end all get the same amount of space.
+
+<div class="flex flex-wrap justify-evenly">
+  <div class="bg-orange-300 size-60">01</div>
+  <div class="bg-green-300 size-60">02</div>
+  <div class="bg-cyan-300 size-60">03</div>
+</div>
+
+8) Stretch
+
+-> Use justify-stretch to allow content items to fill the available space along the container’s main axis:
+
+<div class="flex flex-wrap gap-4 justify-stretch">
+  <div class="bg-orange-300 size-60">01</div>
+  <div class="bg-green-300 size-60">02</div>
+  <div class="bg-cyan-300 size-60">03</div>
+</div>
+
+-------------------------------------------------------------------------
+
+// Justify Items
+
+-> tilities for controlling how grid items are aligned along their inline axis.
+-> justify-items is not for Flexbox — it works in CSS Grid (and some newer layout models).
+
+1) start → aligns items to the left edge of their cell.
+
+<div class="grid justify-items-start">
+  <div class="bg-orange-300 size-60">01</div>
+  <div class="bg-green-300 size-60">02</div>
+  <div class="bg-cyan-300 size-60">03</div>
+  <div class="bg-orange-300 size-60">04</div>
+  <div class="bg-green-300 size-60">05</div>
+  <div class="bg-cyan-300 size-60">06</div>
+</div>
+
+2) end → aligns items to the right edge of their cell.
+
+<div class="grid justify-items-end">
+  <div class="bg-orange-300 size-60">01</div>
+  <div class="bg-green-300 size-60">02</div>
+  <div class="bg-cyan-300 size-60">03</div>
+  <div class="bg-orange-300 size-60">04</div>
+  <div class="bg-green-300 size-60">05</div>
+  <div class="bg-cyan-300 size-60">06</div>
+</div>
+
+3) center → centers items inside their cell.
+
+<div class="grid justify-items-center">
+  <div class="bg-orange-300 size-60">01</div>
+  <div class="bg-green-300 size-60">02</div>
+  <div class="bg-cyan-300 size-60">03</div>
+  <div class="bg-orange-300 size-60">04</div>
+  <div class="bg-green-300 size-60">05</div>
+  <div class="bg-cyan-300 size-60">06</div>
+</div>
+
+4) stretch (default) → items stretch to fill the full cell width.
+
+<div class="grid justify-items-stretch">
+  <div class="bg-orange-300 size-60">01</div>
+  <div class="bg-green-300 size-60">02</div>
+  <div class="bg-cyan-300 size-60">03</div>
+  <div class="bg-orange-300 size-60">04</div>
+  <div class="bg-green-300 size-60">05</div>
+  <div class="bg-cyan-300 size-60">06</div>
+</div>
+
+-------------------------------------------------------------------------
+
+// Justify Self
+
+-> justify-self is the single-item version of justify-items.
+-> Works in CSS Grid (not in Flexbox — except in the new CSS Box Alignment spec, where some support is coming).
+-> Controls how one specific grid item is aligned inside its own grid cell along the inline (row) axis.
+-> Overrides the container’s justify-items setting for that item.
+
+1) 
+
+2) 
+
+3) 
+
+4) 
+
+-------------------------------------------------------------------------
+
+// Align Content
+
+Utilities for controlling how rows are positioned in multi-row flex and grid containers.
+
+1) Normal - Use content-normal to pack content items in their default position as if no align-content value was set:
+
+2) Start - Use content-start to pack rows in a container against the start of the cross axis:
+
+3) Center - Use content-center to pack rows in a container in the center of the cross axis:
+
+4) End - Use content-end to pack rows in a container against the end of the cross axis:
+
+5) Space between - Use content-between to distribute rows in a container such that there is an equal amount of space between each line:
+
+6) Space around - Use content-around to distribute rows in a container such that there is an equal amount of space around each line:
+
+7) Space evenly - Use content-evenly to distribute rows in a container such that there is an equal amount of space around each item
+
+8) Stretch - Use content-stretch to allow content items to fill the available space along the container’s cross axis:
+
+
+-------------------------------------------------------------------------
+
+// Align Items
+
+1) Start - Use items-start to align items to the start of the container’s cross axis:
+
+2) Center - Use items-center to align items along the center of the container’s cross axis:
+
+3) End - Use items-end to align items to the end of the container’s cross axis:
+
+4) Baseline - Use items-baseline to align items along the container’s cross axis such that all of their baselines align:
+
+5) Stretch - Use items-stretch to stretch items to fill the container’s cross axis:
+
+-------------------------------------------------------------------------
+
+// Align Self
+
+Utilities for controlling how an individual flex or grid item is positioned along its container's cross axis.
+
+1) Auto - Use self-auto to align an item based on the value of the container’s align-items property:
+
+2) Start - Use self-start to align an item to the start of the container’s cross axis, despite the container’s align-items value:
+
+3) Center - Use self-center to align an item along the center of the container’s cross axis, despite the container’s align-items value:
+
+4) End - Use self-end to align an item to the end of the container’s cross axis, despite the container’s align-items value:
+
+5) Stretch - Use self-stretch to stretch an item to fill the container’s cross axis, despite the container’s align-items value:
+
+-------------------------------------------------------------------------------
+
+// Place Content
+
+Utilities for controlling how content is justified and aligned at the same time.
+
+1) Center - Use place-content-center to pack items in the center of the block axis:
+
+2) Start - Use place-content-start to pack items against the start of the block axis:
+
+3) End - Use place-content-end to to pack items against the end of the block axis:
+
+4) Space between - Use place-content-between to distribute grid items along the block axis so that that there is an equal amount of space between each row on the block axis.
+
+5) Space around - Use place-content-around distribute grid items such that there is an equal amount of space around each row on the block axis:
+
+6) Space evenly - Use place-content-evenly to distribute grid items such that they are evenly spaced on the block axis:
+
+7) Stretch - Use place-content-stretch to stretch grid items along their grid areas on the block axis:
+
+
+-------------------------------------------------------------------------------
+
+// Place Content
+
+Utilities for controlling how items are justified and aligned at the same time.
+
+-------------------------------------------------------------------------------
+
+// Place Self
+
+Utilities for controlling how an individual item is justified and aligned at the same time.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
