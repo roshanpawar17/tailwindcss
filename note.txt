@@ -2340,4 +2340,259 @@ Utilities for controlling how items are justified and aligned at the same time.
 
 Utilities for controlling how an individual item is justified and aligned at the same time.
 
-------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------** Dark/Light Mode **---------------------------------------------------------------
+
+1. Enable Dark Mode in tailwind.config.js
+
+-> By default, Tailwind uses the media strategy (follows the user’s system preference). You can also use the class strategy to toggle dark mode manually.
+
+// tailwind.config.js
+module.exports = {
+  darkMode: 'class', // or 'media'
+  content: ["./src/**/*.{html,js,ts,jsx,tsx}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+-> media → Uses the system preference (prefers-color-scheme: dark).
+-> class → You control dark mode by toggling a dark class on an element (usually <html> or <body>).
+
+
+2. Usage in HTML / JSX (Note: The `dark:` prefix works in both HTML and JSX. For React, use `className` instead of `class`)
+
+-> Tailwind gives you the dark: prefix to apply styles in dark mode.
+
+<div class="bg-white text-black dark:bg-gray-900 dark:text-white p-6 rounded-xl">
+  <h1 class="text-2xl font-bold">Hello, Tailwind!</h1>
+  <p>This supports dark and light mode.</p>
+</div>
+
+-> Light Mode → bg-white text-black
+-> Dark Mode → dark:bg-gray-900 dark:text-white
+
+
+3. Manually Toggle Dark Mode (class strategy)
+
+-> If you set darkMode: 'class', you can toggle by adding/removing the dark class:
+
+<html class="dark">
+  <body>
+    <div class="bg-white text-black dark:bg-gray-900 dark:text-white">
+      Dark Mode Active
+    </div>
+  </body>
+</html>
+
+Or via JavaScript:
+
+const html = document.documentElement
+html.classList.toggle('dark')
+
+
+4. Example with Toggle Button (JS + Tailwind)
+
+<button
+  onclick="document.documentElement.classList.toggle('dark')"
+  class="px-4 py-2 bg-gray-200 dark:bg-gray-800 dark:text-white rounded"
+>
+  Toggle Dark Mode
+</button>
+
+
+5. Tailwind’s Built-in Colors for Dark Mode
+
+-> You can also define theme-based colors that adapt automatically, but using dark: prefix is the most common.
+
+In short:
+
+-> Enable dark mode in config (media or class).
+-> Use dark: modifier to define dark-specific styles.
+-> Toggle manually with class="dark" or system preference.
+
+6. Hybrid approach (media + class fallback)
+
+-> You can even combine both:
+  -> Start with media (follow system preference).
+  -> Allow users to override with a manual toggle + localStorage.
+
+Summary:
+
+  -> media → automatic, system preference only.
+  -> class → manual, full control (toggle, persist).
+  -> hybrid → best UX (system preference + user override).
+
+
+<html>
+<head></head>
+<body>
+  <!-- Light/Dark Mode Toggle -->
+  <button id="mode-toggle" class="p-2 m-2 bg-cyan-500 rounded text-white dark:bg-gray-700 dark:text-white" 
+      onclick="document.documentElement.classList.toggle('dark'); document.getElementById('mode-toggle').innerText = document.documentElement.classList.contains('dark') ? 'Apply Light Mode' : 'Apply Drak Mode';"
+  >
+      Apply Drak Mode
+  </button>
+  <div class="m-2 p-2 border-2 border-cyan-500 dark:border-none dark:bg-gray-700 dark:text-white">
+      <h1>Tailwind CSS</h1>
+  </div>
+</body>
+<html>
+
+------------------------------------------------------------** Tailwind Directives **---------------------------------------------------------------
+
+-> Tailwind uses special CSS directives inside your CSS files.
+-> These are processed by PostCSS during build time.
+-> In normal CSS we called as At-rules -> @identifier (RULES)
+
+1. @tailwind
+
+-> Used to inject Tailwind’s base, components, and utilities into your CSS.
+
+@tailwind base;       /* Normalize + default styles */
+@tailwind components; /* Pre-built component classes */
+@tailwind utilities;  /* Utility classes (like p-4, text-xl, etc.) */
+
+
+2. @apply
+
+-> Lets you compose Tailwind classes into your own custom CSS class.
+
+.btn {
+  // font-size: 2rem;
+  @apply px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600;
+}
+
+-> Usage:
+
+<button class="btn">Click Me</button>
+
+
+3. @layer
+
+-> Used to organize your custom styles into Tailwind’s layers (base, components, utilities).
+
+@layer base {
+  :root {
+    --color-primary: #4361EE;
+    --color-secondary: 111 114 185;
+    --color-ternary: 333deg 100% 73%;
+    --filter-blur-color: 0, 0, 0, 0.3;
+    --backdrop-blur-color: 0, 0, 0, 0.5;
+  }
+
+  h1 {
+    /* font-size: 2rem; */
+    @apply text-6xl text-center;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white dark:bg-gray-800 p-6 rounded-lg shadow;
+  }
+}
+
+<div class="text-center">
+  <h1 class="m-4">Hello</h1>
+  <button class="btn hover:btn-hover">Click</button>
+</div>
+
+@layer components {
+  .btn {
+    @apply p-4 bg-blue-500 text-white rounded-lg;
+  }
+
+  .btn-hover {
+    @apply hover:bg-blue-600;
+  }
+}
+
+
+4. @variants (Deprecated in v2, replaced with @layer)
+
+-> In older versions, you could use @variants to define responsive/hover states. Now you do that inside @layer.
+
+
+5. @config (Tailwind v3.3+)
+
+-> Lets you specify inline config per CSS file (rarely used but powerful).
+-> @config "./tailwind.admin.config.js";
+-> Put your @import statements before the @config directive
+
+admin.css
+---------
+
+@import "tailwindcss/base";
+@import "./custom-base.css";
+@import "tailwindcss/components";
+@import "./custom-components.css";
+@import "tailwindcss/utilities";
+
+@config "./tailwind.admin.config.js";
+
+------------------------------------------------------------** Tailwind Functions **---------------------------------------------------------------
+
+-> Functions are used inside your tailwind.config.js or sometimes inside your CSS with theme references.
+
+1. theme()
+
+-> Lets you reference values from your Tailwind theme inside CSS.
+
+.custom-box {
+  background-color: theme('colors.brown.500');
+  padding: theme('spacing.4');
+}
+
+-> Use the theme() function to access your Tailwind config values using dot notation.
+
+.content-area {
+  height: calc(100vh - theme(spacing.12));
+}
+
+-> If you need to access a value that contains a dot (like the 2.5 value in the spacing scale), you can use square bracket notation:
+
+.content-area {
+  height: calc(100vh - theme(spacing[2.5]));
+}
+
+  theme: {
+    extend: {
+      screens: {
+        'md': '900px'
+      },
+      spacing: {
+        "1.1": "0.275rem",
+        '1': '1rem'
+      }
+    }
+  }
+
+2. screen()
+
+-> Helps generate media queries using your theme’s breakpoints.
+
+@media screen(sm) {
+  .custom-text {
+    font-size: 14px;
+  }
+}
+
+     |
+     |
+     |
+    \ /
+     |
+     
+@media (min-width: 640px) {
+  /* ... */
+}
+
+@media screen and (min-width: 640px) {
+  .size-60 {
+      width: 15rem;
+      height: 15rem;
+  }   
+}
+
+------------------------------------------------------------**  **---------------------------------------------------------------

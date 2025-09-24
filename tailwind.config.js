@@ -3,6 +3,7 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
+  darkMode: 'class', // media | class
   content: [
     './*.{html,js}',
     './style.css'
@@ -33,6 +34,10 @@ module.exports = {
       padding: {
         // '1': '2rem', // custom padding
         'c-1': '3rem'
+      },
+      spacing: {
+        "1.1": "0.275rem",
+        '1': '1rem'
       },
       margin: {
         // '1': '2rem' // custom margin
