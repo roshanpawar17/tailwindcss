@@ -2839,35 +2839,251 @@ Utilities for controlling the border width between elements.
 -> If your elements are in reverse order (using say flex-row-reverse or flex-col-reverse), 
 use the divide-x-reverse or divide-y-reverse utilities to ensure the border is added to the correct side of each element.
 
-Applying optional holiday leave on Maha Ashtami.
+<div class="flex flex-col-reverse divide-y divide-y-reverse">
+  <div class="m-4 p-4">Tailwind CSS Border 1</div>
+  <div class="m-4 p-4">Tailwind CSS Border 2</div>
+  <div class="m-4 p-4">Tailwind CSS Border 3</div>
+</div>
+
+-> Arbitrary values
+
+<div class="flex m-4 divide-x-[20px]">
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+</div>
+
+<div class="flex flex-col-reverse divide-y-[20px] divide-y-reverse">
+  <div class="m-4 p-4">Tailwind CSS Border 1</div>
+  <div class="m-4 p-4">Tailwind CSS Border 2</div>
+  <div class="m-4 p-4">Tailwind CSS Border 3</div>
+</div>
 
 
 -------------------------------------------------------------------------------------------------
 
+// Divide Color
 
+Utilities for controlling the border color between elements.
+
+1) Setting the divide color
+
+-> Use the divide-* utilities to control the border color between elements.
+
+<div class="flex m-4 divide-x-[5px] divide-blue-500">
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+</div>
+
+2) Changing the opacity
+
+-> Use the color opacity modifier to control the opacity of the divide color.
+
+<div class="flex m-4 divide-x-[5px] divide-blue-500/50">
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+</div>
 
 -------------------------------------------------------------------------------------------------
 
+// Divide Style
 
+Utilities for controlling the border style between elements.
+
+1) Set the divide style
+
+-> Use the divide-* utilities to control the border style between elements.
+
+<div class="flex m-4 divide-x-[5px] divide-blue-500 divide-dashed">
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+</div>
+
+<div class="flex m-4 divide-x-[5px] divide-blue-500 divide-dotted">
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+</div>
+
+<div class="flex m-4 divide-x-[5px] divide-blue-500 divide-double">
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+</div>
+
+------------------------------------------------------------------** Ring **----------------------------------------------------------------
+
+// Ring Width
+
+Utilities for creating outline rings with box-shadows.
+
+1) Adding a ring
+
+-> Use the ring-* utilities to apply solid box-shadow of a specific thickness to an element. 
+  Rings are a semi-transparent blue color by default, similar to the default focus ring style in many systems.
+
+<div class="flex m-4">
+  <div class="m-4 p-4 ring-2 ring-offset-2">Tailwind CSS Border</div>
+  <div class="m-4 p-4 ring-2 ring-offset-2">Tailwind CSS Border</div>
+  <div class="m-4 p-4 ring-2 ring-offset-2">Tailwind CSS Border</div>
+  <div class="m-4 p-4 ring-2 ring-offset-2">Tailwind CSS Border</div>
+</div>
+
+2) Focus rings
+
+-> The ring width utilities make it easy to use custom focus rings by adding focus: to the beginning of any ring-* utility.
+
+<button class="m-4 p-4 ring-2 ring-offset-2 focus:ring-4 bg-orange-500">Click Me</button>
+
+3) Inset rings
+
+-> Use the ring-inset utility to force a ring to render on the inside of an element instead of the outside. 
+  This can be useful for elements at the edge of the screen where part of the ring wouldn’t be visible.
+
+<button class="m-4 p-4 ring-2 ring-offset-2 focus:ring-4 ring-inset bg-orange-500">Click Me</button>
+
+4) Arbitrary values
+
+<button class="m-4 p-4 ring-[5px] ring-offset-2 focus:ring-8 bg-orange-500">Click Me</button>
 
 -------------------------------------------------------------------------------------------------
 
+// Ring Color
+
+Utilities for setting the color of outline rings.
+
+1) Setting the ring color
+
+-> Use the ring-* utilities to set the color of an outline ring.
+
+<div class="flex m-4">
+  <button class="m-4 p-4 ring-2 ring-offset-2 focus:ring-4 bg-orange-500 ring-blue-500">Click Me</button>
+  <button class="m-4 p-4 ring-2 ring-offset-2 focus:ring-4 ring-inset bg-orange-500 ring-red-500">Click Me</button>
+  <button class="m-4 p-4 ring-[5px] ring-offset-2 focus:ring-8 bg-orange-500 ring-green-500">Click Me</button>
+</div>
+
+2) Changing the opacity
+
+-> Use the color opacity modifier to control the opacity of an element’s background color.
+
+<div class="flex m-4">
+  <button class="m-4 p-4 ring-2 ring-offset-2 focus:ring-4 bg-orange-500 ring-blue-500/50">Click Me</button>
+  <button class="m-4 p-4 ring-2 ring-offset-2 focus:ring-4 ring-inset bg-orange-500 ring-red-500/50">Click Me</button>
+  <button class="m-4 p-4 ring-[5px] ring-offset-2 focus:ring-8 bg-orange-500 ring-green-500/50">Click Me</button>
+</div>
+
+3) You can use any value defined in your opacity scale, or use arbitrary values if you need to deviate from your design tokens. 
+
+<button class="m-4 p-4 ring-[5px] ring-offset-2 focus:ring-8 bg-orange-500 ring-green-500/[.50]">Click Me</button>
 
 
+4) Arbitrary values
+
+<button class="m-4 p-4 ring-[5px] ring-offset-2 focus:ring-8 bg-orange-500 ring-[#50d71e]">Click Me</button>
+
+5) Ring Offset Width and Ring Offset Color
+
+<button class="m-4 p-4 ring-[5px] ring-red-500 ring-offset-8 ring-offset-purple-500 focus:ring-8 bg-orange-500 ">Click Me</button>
+
+**NOTE:
+
+1. Ring offset inside and Ring outside of ring-offset
 
 
+------------------------------------------------------------------** Typography **----------------------------------------------------------------
+
+// Font Famaly
+
+1)
+
+<p class="font-sans ...">The quick brown fox ...</p>
+<p class="font-serif ...">The quick brown fox ...</p>
+<p class="font-mono ...">The quick brown fox ...</p>
+
+2) Arbitrary
+
+<p class="font-['Open_Sans']">The quick brown fox ...</p>
 
 
+----------------------------------------------------------------------------------
+
+// Font Size
+
+1) 
+
+<p class="text-sm ...">The quick brown fox ...</p>
+<p class="text-base ...">The quick brown fox ...</p>
+<p class="text-lg ...">The quick brown fox ...</p>
+<p class="text-xl ...">The quick brown fox ...</p>
+<p class="text-2xl ...">The quick brown fox ...</p>
+
+2) Setting the line-height
+
+<p class="text-base/10">The quick brown fox .So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I was a marine biologist.</p>
 
 
+3) Arbitrary
+
+<p class="text-[2px]...">The quick brown fox ...</p>
+
+----------------------------------------------------------------------------------
+
+//Font Style
+
+Utilities for controlling the style of text.
+
+<p class="italic ...">The quick brown fox ...</p>
+<p class="not-italic ...">The quick brown fox ...</p>
+
+----------------------------------------------------------------------------------
+
+// Font Weight
+
+Utilities for controlling the font weight of an element.
+
+1) Setting the font weight
+
+Use the font-* utilities to control the font weight of an element.
+
+<p class="font-light ...">The quick brown fox ...</p>
+<p class="font-normal ...">The quick brown fox ...</p>
+<p class="font-medium ...">The quick brown fox ...</p>
+<p class="font-semibold ...">The quick brown fox ...</p>
+<p class="font-bold ...">The quick brown fox ...</p>
+
+2) Arbitrary values
+
+<p class="font-[300].">The quick brown fox ...</p>
+
+----------------------------------------------------------------------------------
+
+// Font Variant Numeric
+
+Utilities for controlling the variant of numbers.
 
 
+Class                  Properties
 
+normal-nums	          font-variant-numeric: normal;
+ordinal	              font-variant-numeric: ordinal;
+slashed-zero	        font-variant-numeric: slashed-zero;
+lining-nums	          font-variant-numeric: lining-nums;
+oldstyle-nums	        font-variant-numeric: oldstyle-nums;
+proportional-nums	    font-variant-numeric: proportional-nums;
+tabular-nums	        font-variant-numeric: tabular-nums;
+diagonal-fractions	  font-variant-numeric: diagonal-fractions;
+stacked-fractions	    font-variant-numeric: stacked-fractions;
 
-
-
-
-
+----------------------------------------------------------------------------------
 
 
 
