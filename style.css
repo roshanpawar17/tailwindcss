@@ -31,9 +31,9 @@
     }
 
     .btn-hover {
-        @apply hover:bg-blue-600;
-        padding: theme(spacing.1);
-        /* padding: theme('spacing[1.1]'); */
+        /* @apply hover:bg-blue-600; */
+        /* padding: theme(spacing.1); */
+        padding: 0 theme('spacing[1.1]');
     }
 }
 

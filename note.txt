@@ -2595,4 +2595,286 @@ admin.css
   }   
 }
 
-------------------------------------------------------------**  **---------------------------------------------------------------
+------------------------------------------------------------** Borders **---------------------------------------------------------------
+
+// Border Width
+
+Utilities for controlling the width of an element's borders.
+
+1) All sides
+
+-> Use the border, border-0, border-2, border-4, or border-8 utilities to set the border width for all sides of an element.
+
+<div class="m-4 p-4 border">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-2">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-8">Tailwind CSS Border</div>
+
+2) Individual sides
+
+-> Use the border-*, border-*-0, border-*-2, border-*-4, or border-*-8 utilities to set the border width for one side of an element.
+
+<div class="m-4 p-4 border-t-2">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-r-4">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-b-8">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-l-8">Tailwind CSS Border</div>
+
+3) Horizontal and vertical sides
+
+-> Use the border-x-* and border-y-* utilities to set the border width on two sides of an element at the same time.
+
+<div class="m-4 p-4 border-x-4">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-y-4">Tailwind CSS Border</div>
+
+4) Between elements
+
+-> You can also add borders between child elements using the divide-x-* and divide-y-* width utilities along with the divide-* color utilities.
+
+<div class="m-4 divide-y-4 divide-slate-700 ...">
+  <div class="p-4">01</div>
+  <div class="p-4">02</div>
+  <div class="p-4">03</div>
+</div>
+
+5) Horizontal and vertical sides
+
+-> Use the border-x-* and border-y-* utilities to set the border width on two sides of an element at the same time.
+
+<div class="m-4 p-4 border-s-8 border-indigo-500">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-e-8 border-indigo-500">Tailwind CSS Border</div>
+
+6) Arbitrary values
+
+<div class="m-4 p-4 border-t-[8px] border-indigo-500">Tailwind CSS Border</div> 
+
+--------------------------------------------------------------------------------------------
+
+// Border Style
+
+Utilities for controlling the style of an element's borders.
+
+1) Setting the border style
+
+-> Use border-* to control an element’s border style.
+
+<div class="m-4 p-4 border-2 border-solid border-indigo-500">Tailwind CSS Border</div> 
+<div class="m-4 p-4 border-2 border-dotted border-indigo-500">Tailwind CSS Border</div> 
+<div class="m-4 p-4 border-2 border-dashed border-indigo-500">Tailwind CSS Border</div> 
+<div class="m-4 p-4 border-2 border-double border-indigo-500">Tailwind CSS Border</div> 
+<div class="m-4 p-4 border-2 border-double border-indigo-500 hover:border-none">Tailwind CSS Border</div> 
+
+--------------------------------------------------------------------------------------------
+
+// Border Colors
+
+1) Setting the border color
+
+-> Use the border-* utilities to control the border color of an element.
+
+<div class="m-4 p-4 border-4 border-rose-500">Tailwind CSS Border</div>
+
+2) Changing the opacity
+
+-> Use the color opacity modifier to control the opacity of an element’s border color.
+
+<div class="m-4 p-4 border-4 border-rose-500/50">Tailwind CSS Border</div>
+
+3) Individual sides
+
+-> Use the border-t-*, border-r-*, border-b-*, and border-l-* utilities to set the border color for one side of an element.
+
+<div class="m-4 p-4 border-4 border-t-rose-500">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-r-rose-500">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-b-rose-500">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-l-rose-500">Tailwind CSS Border</div>
+
+4) Horizontal and vertical sides
+
+-> Use the border-x-* and border-y-* utilities to set the border color on two sides of an element at the same time.
+
+<div class="m-4 p-4 border-4 border-x-rose-500">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-y-rose-500">Tailwind CSS Border</div>
+
+
+5) Using logical properties
+
+-> Use the border-s-* and border-e-* utilities to set the border-inline-start-color and border-inline-end-color logical properties, 
+  which map to either the left or right border based on the text direction.
+
+<div class="m-4 p-4 border-4 border-s-rose-500">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-e-rose-500">Tailwind CSS Border</div>
+
+6) Arbitrary
+
+<div class="m-4 p-4 border-4 border-[#243c5a]">Tailwind CSS Border</div>
+
+----------------------------------------------------------------------------------------------------------
+
+// Border Radius
+
+Utilities for controlling the border radius of an element.
+
+1) Rounded corners
+
+-> Use utilities like rounded-sm, rounded, or rounded-lg to apply different border radius sizes to an element.
+
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded-md">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded-lg">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded-full">Tailwind CSS Border</div>
+
+2) Pill buttons
+
+-> Use the rounded-full utility to create pill buttons.
+
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded-full">Tailwind CSS Border</div>
+
+3) No rounding
+
+-> Use rounded-none to remove an existing border radius from an element.
+
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded-lg hover:rounded-none">Tailwind CSS Border</div>
+
+4) Rounding sides separately
+
+-> Use the rounded-t-*, rounded-r-*, rounded-b-*, and rounded-l-* utilities to only round one side of an element.
+
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded-t-lg">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded-r-lg">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded-b-lg">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded-l-lg">Tailwind CSS Border</div>
+
+5) Rounding corners separately
+
+-> Use the rounded-tl-*, rounded-tr-*, rounded-br-*, and rounded-bl-* utilities to only round one corner of an element.
+
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded-tl-lg">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded-tr-lg">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded-bl-lg">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded-br-lg">Tailwind CSS Border</div>
+
+6) Using logical properties
+
+-> Use the rounded-s-*, rounded-e-*, rounded-ss-*, rounded-se-*, rounded-es-*, and rounded-ee-* utilities to set the border radius using logical properties
+
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded-ss-lg">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded-se-lg">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded-es-lg">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded-ee-lg">Tailwind CSS Border</div>
+
+7) Arbitrary values
+
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded-[12px]">Tailwind CSS Border</div>
+
+------------------------------------------------------------------** Outline **----------------------------------------------------------------
+
+// Outline Color
+
+-> Utilities for controlling the color of an element's outline.
+
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded outline outline-blue-500">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded outline outline-cyan-500">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded outline outline-pink-500">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded outline outline-red-500">Tailwind CSS Border</div>
+
+-------------------------------------------------------------------------------------------------
+
+// Outline offset
+
+-> outline-offset is a CSS property that sets the space between an element’s border (or edge) and its outline.
+
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded outline outline-offset-1 outline-blue-500">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded outline outline-offset-1 outline-cyan-500">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded outline outline-offset-1 outline-pink-500">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded outline outline-offset-1 outline-red-500">Tailwind CSS Border</div>
+
+-------------------------------------------------------------------------------------------------
+
+// Outline Style
+
+-> Utilities for controlling the style of an element's outline.
+
+1) Setting the outline style
+
+-> Use the outline-* utilities to change the style of an element’s outline.
+-> outline-none	-> outline: 2px solid transparent;
+                   outline-offset: 2px;
+
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded outline outline-offset-1 outline-blue-500">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded outline-none outline-offset-1 outline-cyan-500">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded outline-dashed outline-offset-1 outline-pink-500">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded outline-dotted outline-offset-1 outline-red-500">Tailwind CSS Border</div>
+<div class="m-4 p-4 border-4 border-[#243c5a] rounded outline-double outline-offset-1 outline-red-500">Tailwind CSS Border</div>
+
+------------------------------------------------------------------** Divide **----------------------------------------------------------------
+
+// Divide Width
+
+Utilities for controlling the border width between elements.
+
+1) Add borders between horizontal children
+
+-> Use the divide-x-* utilities to add borders between horizontal elements.
+
+<div class="flex divide-x-4">
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+</div>
+
+2) Add borders between stacked children
+
+-> Use the divide-y-* utilities to add borders between stacked elements.
+
+<div class="flex divide-x-4">
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+  <div class="m-4 p-4">Tailwind CSS Border</div>
+</div>
+
+3) Reversing children order
+
+-> If your elements are in reverse order (using say flex-row-reverse or flex-col-reverse), 
+use the divide-x-reverse or divide-y-reverse utilities to ensure the border is added to the correct side of each element.
+
+Applying optional holiday leave on Maha Ashtami.
+
+
+-------------------------------------------------------------------------------------------------
+
+
+
+-------------------------------------------------------------------------------------------------
+
+
+
+-------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

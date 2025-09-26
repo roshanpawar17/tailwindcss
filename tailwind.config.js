@@ -36,7 +36,7 @@ module.exports = {
         'c-1': '3rem'
       },
       spacing: {
-        "1.1": "0.275rem",
+        "1.1": "2rem",
         '1': '1rem'
       },
       margin: {
